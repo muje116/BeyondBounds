@@ -1,0 +1,22 @@
+title = "Blog Post"
+url = "/blog/:slug"
+layout = "default"
+[blogPost]
+slug = "{{ :slug }}"
+==
+<section class="bb-shell bb-section">
+  {% if blogPost.post %}
+    <div class="max-w-4xl mx-auto">
+      <p class="text-primary text-xs font-label-bold uppercase tracking-[0.16em]">{{ blogPost.post.published_at|date('M d, Y') }}</p>
+      <h1 class="font-headline-xl text-white mt-4">{{ blogPost.post.title }}</h1>
+      <article class="bb-panel mt-8 prose max-w-none prose-p:text-on-surface-variant prose-headings:text-white prose-a:text-primary hover:prose-a:text-secondary prose-strong:text-white">{{ blogPost.post.content_html|raw }}</article>
+      <div class="mt-8">
+        <a href="/blog" class="text-secondary font-label-bold inline-flex items-center gap-2">← Back to Blog</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="max-w-4xl mx-auto">
+      <h1 class="font-headline-lg text-white">Post not found.</h1>
+    </div>
+  {% endif %}
+</section>

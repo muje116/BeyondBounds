@@ -1,0 +1,86 @@
+title = "About"
+url = "/about"
+layout = "default"
+[teamMembers]
+==
+{% set aboutImg = (siteSettings and siteSettings.about_hero_image) ? (siteSettings.about_hero_image|media) : null %}
+{% partial 'sections/page-hero'
+  kicker='Our Story'
+  title='Redefining the limits of human movement.'
+  subtitle='Beyond Bounds was founded on the belief that recovery is not just returning to baseline. We combine clinical precision with human empathy to help patients move freely and confidently.'
+  align='left'
+  image=aboutImg
+  imageAlt='Beyond Bounds care team'
+%}
+
+{% if siteSettings and (siteSettings.vision_text or siteSettings.mission_text) %}
+  <section class="bb-shell pb-20">
+    <div class="grid md:grid-cols-2 gap-6">
+      {% if siteSettings.vision_text %}
+        <article class="bb-panel bb-hover-lift">
+          <p class="text-secondary font-label-bold tracking-[0.18em] uppercase">{{ siteSettings.vision_title ?: 'Our Vision' }}</p>
+          <p class="text-on-surface-variant mt-4">{{ siteSettings.vision_text }}</p>
+        </article>
+      {% endif %}
+      {% if siteSettings.mission_text %}
+        <article class="bb-panel bb-hover-lift">
+          <p class="text-secondary font-label-bold tracking-[0.18em] uppercase">{{ siteSettings.mission_title ?: 'Our Mission' }}</p>
+          <p class="text-on-surface-variant mt-4">{{ siteSettings.mission_text }}</p>
+        </article>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% if siteSettings and siteSettings.core_values %}
+  <section class="bb-shell pb-20">
+    <div class="mb-10">
+      <h2 class="bb-title">Our Core Values</h2>
+      <p class="text-on-surface-variant mt-2">The standards we hold ourselves to in every interaction and treatment plan.</p>
+    </div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {% for v in siteSettings.core_values %}
+        <article class="bb-card bb-hover-lift">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-3xl">{{ v.icon ?: 'verified' }}</span>
+            <div>
+              <h3 class="font-headline-md text-white">{{ v.title }}</h3>
+              <p class="text-on-surface-variant mt-2">{{ v.description }}</p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+<section class="bb-shell pb-20">
+  <h2 class="bb-title mb-8">Core Principles</h2>
+  <div class="grid md:grid-cols-12 gap-6">
+    <article class="bb-panel bb-hover-lift md:col-span-7">
+      <h3 class="font-headline-md text-white">Patient-Centered Focus</h3>
+      <p class="text-on-surface-variant mt-3">Every body tells a story. We treat root causes and craft plans that fit real lifestyles, not generic protocols.</p>
+    </article>
+    <article class="bb-panel bb-hover-lift md:col-span-5">
+      <h3 class="font-headline-md text-white">Evidence-Based Practice</h3>
+      <p class="text-on-surface-variant mt-3">Our decisions are grounded in modern physiotherapy research, movement science, and clinical outcome tracking.</p>
+    </article>
+    <article class="bb-panel bb-hover-lift md:col-span-5">
+      <h3 class="font-headline-md text-white">Performance Mindset</h3>
+      <p class="text-on-surface-variant mt-3">We move clients from pain relief to resilience, strength, and long-term movement confidence.</p>
+    </article>
+    <article class="bb-panel bb-hover-lift md:col-span-7">
+      <h3 class="font-headline-md text-white">Progress You Can Measure</h3>
+      <p class="text-on-surface-variant mt-3">Treatment plans are reviewed and adapted with clear checkpoints so recovery remains transparent and accountable.</p>
+    </article>
+  </div>
+</section>
+
+{% partial 'sections/cta-strip'
+  title='Ready to go beyond your limitations?'
+  subtitle='Book your appointment and we’ll build a recovery plan that fits your life.'
+  primaryHref='/book'
+  primaryLabel='Book Now'
+  secondaryHref='/services'
+  secondaryLabel='Explore Treatments'
+%}

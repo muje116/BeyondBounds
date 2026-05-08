@@ -1,0 +1,75 @@
+title = "Book"
+url = "/book"
+layout = "default"
+[bookingForm]
+[clinicServices]
+[clinicFeatures]
+page_scope = "book"
+==
+{% partial 'sections/page-hero'
+  kicker='Appointments'
+  title='Start Your Recovery Journey'
+  subtitle='Tell us your needs and preferred schedule. Our team will confirm your appointment quickly.'
+  align='center'
+%}
+
+<section class="bb-shell pb-20">
+  <div class="grid lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-8 bb-card">
+      <h2 class="bb-title mb-6">Booking Form</h2>
+      <form data-request="onSubmitBooking" class="grid md:grid-cols-2 gap-4">
+        <input class="bb-input" name="full_name" placeholder="Full Name" required>
+        <input class="bb-input" name="email" type="email" placeholder="Email" required>
+        <input class="bb-input" name="phone" placeholder="Phone" required>
+        <select class="bb-input" name="service_requested">
+          {% for s in services %}<option>{{ s.name }}</option>{% endfor %}
+        </select>
+        <input class="bb-input" type="date" name="preferred_date" required>
+        <select class="bb-input" name="preferred_time">
+          <option>08:00</option><option>10:00</option><option>14:00</option><option>16:00</option>
+        </select>
+        <button class="bb-btn-primary md:col-span-2 justify-self-start" type="submit">Submit Booking</button>
+      </form>
+    </div>
+    <aside class="lg:col-span-4 space-y-6">
+      <div class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]">
+      <h3 class="font-headline-md text-white">Clinic Hours</h3>
+      <ul class="text-on-surface-variant mt-4 space-y-2">
+        {% if siteSettings and siteSettings.clinic_hours %}
+          {% for row in siteSettings.clinic_hours %}
+            <li>{{ row.day }}: {{ row.hours }}</li>
+          {% endfor %}
+        {% else %}
+          <li>Mon-Fri: 08:00 - 18:00</li>
+          <li>Sat: 09:00 - 13:00</li>
+          <li>Sun: Closed</li>
+        {% endif %}
+      </ul>
+      <p class="text-on-surface-variant mt-6">
+        {{ siteMapQuery ?: 'Area 47, Lilongwe, Malawi' }}<br>
+        {{ siteSettings.primary_phone ?: '+265 888 000 000' }}
+      </p>
+      </div>
+      <div class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]">
+        <h3 class="font-headline-md text-white mb-4">Booking Highlights</h3>
+        {% for feature in features|slice(0, 3) %}
+          <div class="mb-4">
+            <p class="text-secondary font-label-bold text-xs uppercase tracking-[0.16em]">{{ feature.title }}</p>
+            <p class="text-on-surface-variant text-sm mt-1">{{ feature.description }}</p>
+          </div>
+        {% else %}
+          <p class="text-on-surface-variant text-sm">Your booking request will be reviewed by a specialist who will confirm the best care plan.</p>
+        {% endfor %}
+      </div>
+      <div class="bb-service-media-wrap bb-hover-lift">
+        <iframe
+          class="bb-service-media"
+          title="Area 47, Lilongwe Map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q={{ (siteMapQuery ?: 'Area 47, Lilongwe, Malawi')|url_encode }}&output=embed">
+        </iframe>
+      </div>
+    </aside>
+  </div>
+</section>

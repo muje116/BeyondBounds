@@ -1,0 +1,42 @@
+title = "Packages"
+url = "/packages"
+layout = "default"
+[orgPackages]
+==
+{% partial 'sections/page-hero'
+  kicker='Recovery Paths'
+  title='Restorative Packages'
+  subtitle='Flexible package structures for individuals, families, and teams who want consistent care and measurable outcomes.'
+  align='left'
+%}
+
+<section class="bb-shell pb-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {% for p in packages %}
+      <article class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)] {{ p.is_featured ? 'border-secondary/60' }}">
+        <p class="text-secondary text-xs font-label-bold uppercase tracking-[0.16em]">{{ p.tier ?: 'Package' }}</p>
+        <h3 class="font-headline-md text-white mt-2">{{ p.name }}</h3>
+        <p class="text-on-surface-variant mt-4">{{ p.description ?: (p.org_size ~ ' | ' ~ p.duration) }}</p>
+        {% if p.includes %}
+          <ul class="text-on-surface-variant text-sm mt-4 space-y-1">
+            {% for item in p.includes %}<li>- {{ item }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% else %}
+      <article class="bb-panel md:col-span-2 xl:col-span-3 text-center">
+        <h3 class="font-headline-md text-white">Packages Updating Soon</h3>
+        <p class="text-on-surface-variant mt-3">We are preparing refreshed package options. Contact our team for current recommendations.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% partial 'sections/cta-strip'
+  title='Want a package tailored to you?'
+  subtitle='We can recommend the right plan based on your goals, schedule, and recovery timeline.'
+  primaryHref='/book'
+  primaryLabel='Book Now'
+  secondaryHref='/contact'
+  secondaryLabel='Request Advice'
+%}

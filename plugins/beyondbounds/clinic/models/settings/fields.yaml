@@ -1,0 +1,179 @@
+tabs:
+  fields:
+    logo:
+      label: Logo
+      type: mediafinder
+      mode: image
+      tab: Branding
+      span: left
+    brand_name:
+      label: Brand Name
+      type: text
+      tab: Branding
+      default: Beyond Bounds
+      span: right
+    tagline:
+      label: Tagline
+      type: text
+      tab: Branding
+      default: Bringing Health to You
+      span: right
+    primary_phone:
+      label: Primary Phone
+      type: text
+      tab: Contact
+      span: left
+      placeholder: "+265 888 000 000"
+    primary_email:
+      label: Primary Email
+      type: text
+      tab: Contact
+      span: right
+      placeholder: "hello@beyondbounds.mw"
+    address:
+      label: Address
+      type: textarea
+      size: small
+      tab: Contact
+      span: full
+      placeholder: "Area 47, Lilongwe, Malawi"
+    map_query:
+      label: Map Search Query
+      type: text
+      tab: Contact
+      span: full
+      default: "Area 47, Lilongwe, Malawi"
+      comment: Used for the embedded Google map.
+
+    clinic_hours:
+      label: Clinic Hours
+      type: repeater
+      tab: Contact
+      span: full
+      prompt: Add day / hours
+      form:
+        fields:
+          day:
+            label: Day
+            type: text
+            span: left
+            placeholder: "Mon–Fri"
+          hours:
+            label: Hours
+            type: text
+            span: right
+            placeholder: "08:00 – 18:00"
+
+    default_hero_image:
+      label: Default Hero Image
+      type: mediafinder
+      mode: image
+      tab: Media
+      span: full
+    about_hero_image:
+      label: About Hero Image
+      type: mediafinder
+      mode: image
+      tab: Media
+      span: full
+
+    home_intro_image:
+      label: Home Intro Image
+      type: mediafinder
+      mode: image
+      tab: Home
+      span: full
+    home_intro_title:
+      label: Home Intro Title
+      type: text
+      tab: Home
+      span: left
+      default: Comprehensive Physiotherapy Services
+    home_intro_text:
+      label: Home Intro Text
+      type: textarea
+      size: small
+      tab: Home
+      span: right
+      default: We treat a wide range of conditions with evidence-based methods, from sports injuries to post-surgical rehabilitation. Our holistic approach ensures your complete recovery.
+    home_intro_bullets:
+      label: Home Intro Bullets
+      type: repeater
+      tab: Home
+      span: full
+      prompt: Add bullet
+      form:
+        fields:
+          text:
+            label: Bullet text
+            type: text
+            span: full
+
+    vision_title:
+      label: Vision Title
+      type: text
+      tab: Vision & Mission
+      span: left
+      default: Our Vision
+    vision_text:
+      label: Vision Text
+      type: textarea
+      tab: Vision & Mission
+      span: right
+      size: small
+
+    mission_title:
+      label: Mission Title
+      type: text
+      tab: Vision & Mission
+      span: left
+      default: Our Mission
+    mission_text:
+      label: Mission Text
+      type: textarea
+      tab: Vision & Mission
+      span: right
+      size: small
+
+    core_values:
+      label: Core Values
+      type: repeater
+      tab: Values
+      span: full
+      prompt: Add a value
+      form:
+        fields:
+          title:
+            label: Title
+            type: text
+            span: left
+          icon:
+            label: Icon (Material)
+            type: text
+            span: right
+            placeholder: "volunteer_activism"
+          description:
+            label: Description
+            type: textarea
+            span: full
+            size: small
+
+    social_links:
+      label: Social Links
+      type: repeater
+      tab: Social
+      span: full
+      prompt: Add social link
+      form:
+        fields:
+          label:
+            label: Label
+            type: text
+            span: left
+            placeholder: Instagram
+          url:
+            label: URL
+            type: text
+            span: right
+            placeholder: "https://..."
+

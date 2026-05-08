@@ -1,0 +1,13 @@
+<?php
+use October\Rain\Database\Schema\Blueprint;
+use October\Rain\Database\Updates\Migration;
+class CreateServicesTable extends Migration {
+  public function up(){ \Schema::create('beyondbounds_clinic_services', function (Blueprint $table) {
+    $table->id(); $table->string('name'); $table->string('slug')->unique(); $table->text('short_description');
+    $table->longText('full_description')->nullable(); $table->string('icon_class')->nullable(); $table->string('category');
+    $table->boolean('is_featured')->default(false); $table->integer('sort_order')->default(0); $table->boolean('is_active')->default(true); $table->timestamps();
+  });}
+  public function down(){ \Schema::dropIfExists('beyondbounds_clinic_services');}
+}
+
+

@@ -1,0 +1,41 @@
+<footer class="bg-[#08141d] border-t border-primary/20 mt-16">
+  <div class="bb-shell py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <p class="font-headline-md text-white tracking-[0.12em] uppercase">{{ siteBrandName ?: 'Beyond Bounds' }}</p>
+      <p class="text-on-surface-variant text-sm mt-3 max-w-md">{{ siteTagline ?: 'Bringing Health to You' }}</p>
+      <p class="text-on-surface-variant text-sm mt-4">&copy; {{ "now"|date("Y") }} {{ siteBrandName ?: 'Beyond Bounds' }}.</p>
+    </div>
+    <div class="md:col-span-2">
+      <p class="text-white font-label-bold uppercase tracking-[0.08em] text-xs">Explore</p>
+      <div class="mt-4 space-y-2">
+        <a class="bb-nav-link block" href="/services">Services</a>
+        <a class="bb-nav-link block" href="/packages">Packages</a>
+        <a class="bb-nav-link block" href="/for-organizations">Organizations</a>
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <p class="text-white font-label-bold uppercase tracking-[0.08em] text-xs">Company</p>
+      <div class="mt-4 space-y-2">
+        <a class="bb-nav-link block" href="/about">About</a>
+        <a class="bb-nav-link block" href="/team">Team</a>
+        <a class="bb-nav-link block" href="/blog">Blog</a>
+      </div>
+    </div>
+    <div class="md:col-span-3">
+      <p class="text-white font-label-bold uppercase tracking-[0.08em] text-xs">Contact</p>
+      <p class="text-on-surface-variant text-sm mt-4">{{ siteSettings.primary_phone ?: '+265 888 000 000' }}</p>
+      <p class="text-on-surface-variant text-sm mt-1">{{ siteSettings.primary_email ?: 'hello@beyondbounds.mw' }}</p>
+      <a href="/book" class="bb-btn-primary inline-flex mt-5">Book Appointment</a>
+
+      {% if siteSettings and siteSettings.social_links %}
+        <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+          {% for link in siteSettings.social_links %}
+            {% if link.url %}
+              <a class="bb-nav-link text-sm" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label ?: link.url }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>

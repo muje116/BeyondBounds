@@ -1,0 +1,4 @@
+client_name: { label: Name, searchable: true }
+rating: { label: Rating }
+is_active: { label: Active, type: switch }
+created_at: { label: Added, type: datetime }

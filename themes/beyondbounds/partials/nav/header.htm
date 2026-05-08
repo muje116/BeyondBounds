@@ -1,0 +1,49 @@
+<nav class="sticky top-0 left-0 w-full z-50 bg-[#0D1B2A]/85 backdrop-blur-md border-b border-primary/20">
+  <div class="bb-shell h-20 grid grid-cols-3 items-center">
+    <a href="/" class="flex items-center gap-3 justify-self-start">
+      {% if siteSettings and siteSettings.logo %}
+        <img
+          src="{{ siteSettings.logo|media }}"
+          alt="{{ siteBrandName ?: 'Beyond Bounds' }} logo"
+          class="bb-logo h-10 w-auto object-contain"
+          loading="eager"
+        >
+      {% else %}
+        <span class="material-symbols-outlined text-primary text-3xl">clinical_notes</span>
+      {% endif %}
+      <span class="font-headline-md text-white tracking-[0.12em] uppercase">{{ siteBrandName ?: 'Beyond Bounds' }}</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-7 justify-self-center">
+      {% set p = this.page.id %}
+      <a href="/" class="bb-nav-link {{ p == 'index' ? 'bb-nav-link-active' }}">Home</a>
+      <a href="/services" class="bb-nav-link {{ p == 'services' ? 'bb-nav-link-active' }}">Services</a>
+      <a href="/packages" class="bb-nav-link {{ p == 'packages' ? 'bb-nav-link-active' }}">Packages</a>
+      <a href="/about" class="bb-nav-link {{ p == 'about' or p == 'team' ? 'bb-nav-link-active' }}">About</a>
+      <a href="/team" class="bb-nav-link {{ p == 'team' ? 'bb-nav-link-active' }}">Team</a>
+      <a href="/for-organizations" class="bb-nav-link {{ p == 'for-organizations' ? 'bb-nav-link-active' }}">Organizations</a>
+      <a href="/blog" class="bb-nav-link {{ p == 'blog' ? 'bb-nav-link-active' }}">Blog</a>
+      <a href="/contact" class="bb-nav-link {{ p == 'contact' ? 'bb-nav-link-active' }}">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-3 justify-self-end">
+      <button id="themeToggle" class="hidden md:inline-flex bb-btn-ghost px-4 py-2 text-xs">Light</button>
+      <a href="/book" class="bb-btn-primary hidden md:inline-flex">Book Now</a>
+      <button id="mobileMenuToggle" class="lg:hidden bb-btn-ghost px-3 py-2 text-xs" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden bb-shell pb-4">
+    {% set p = this.page.id %}
+    <div class="grid grid-cols-2 gap-3">
+      <a href="/" class="bb-nav-link {{ p == 'index' ? 'bb-nav-link-active' }}">Home</a>
+      <a href="/services" class="bb-nav-link {{ p == 'services' ? 'bb-nav-link-active' }}">Services</a>
+      <a href="/packages" class="bb-nav-link {{ p == 'packages' ? 'bb-nav-link-active' }}">Packages</a>
+      <a href="/about" class="bb-nav-link {{ p == 'about' or p == 'team' ? 'bb-nav-link-active' }}">About</a>
+      <a href="/team" class="bb-nav-link {{ p == 'team' ? 'bb-nav-link-active' }}">Team</a>
+      <a href="/for-organizations" class="bb-nav-link {{ p == 'for-organizations' ? 'bb-nav-link-active' }}">Organizations</a>
+      <a href="/blog" class="bb-nav-link {{ p == 'blog' ? 'bb-nav-link-active' }}">Blog</a>
+      <a href="/contact" class="bb-nav-link {{ p == 'contact' ? 'bb-nav-link-active' }}">Contact</a>
+      <a href="/book" class="bb-btn-primary justify-center">Book Now</a>
+    </div>
+  </div>
+</nav>

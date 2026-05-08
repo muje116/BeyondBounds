@@ -1,0 +1,41 @@
+name: Contact
+modelClass: BeyondBounds\Clinic\Models\Contact
+form:
+    tabs:
+        fields:
+            is_read:
+                label: Mark as Read
+                type: switch
+                tab: Details
+                span: left
+                default: false
+            name:
+                label: Name
+                type: text
+                required: true
+                tab: Details
+                span: left
+            email:
+                label: Email
+                type: text
+                required: true
+                tab: Details
+                span: right
+            phone:
+                label: Phone
+                type: text
+                tab: Details
+                span: left
+            subject:
+                label: Subject
+                type: text
+                required: true
+                tab: Details
+                span: right
+            message:
+                label: Message
+                type: textarea
+                size: large
+                required: true
+                tab: Message
+                span: full

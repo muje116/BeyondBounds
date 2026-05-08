@@ -1,0 +1,72 @@
+name: Service
+modelClass: BeyondBounds\Clinic\Models\Service
+form:
+    tabs:
+        fields:
+            name:
+                label: Service Name
+                type: text
+                required: true
+                tab: Content
+                span: left
+            slug:
+                label: URL Slug
+                type: text
+                preset: { field: name, type: slug }
+                tab: Content
+                span: right
+            category:
+                label: Category
+                type: dropdown
+                tab: Content
+                span: left
+                emptyOption: Select category
+                options:
+                    musculoskeletal: Musculoskeletal
+                    neurological: Neurological
+                    sports: Sports Injuries
+                    rehabilitation: Rehabilitation
+                    wellness: Wellness and Fitness
+            icon_class:
+                label: Icon (Material)
+                type: text
+                tab: Content
+                span: right
+                comment: "Example: fitness_center"
+            short_description:
+                label: Short Description
+                type: textarea
+                size: small
+                tab: Content
+                span: full
+            full_description:
+                label: Full Description
+                type: richeditor
+                tab: Content
+                span: full
+
+            image:
+                label: Service Image
+                type: fileupload
+                mode: image
+                tab: Media
+                span: full
+
+            is_featured:
+                label: Featured on Homepage
+                type: switch
+                tab: Publishing
+                span: left
+                default: false
+            is_active:
+                label: Active
+                type: switch
+                tab: Publishing
+                span: left
+                default: true
+            sort_order:
+                label: Sort Order
+                type: number
+                tab: Publishing
+                span: right
+                default: 0

@@ -1,0 +1,13 @@
+1.0.1:
+    - Initialize BeyondBounds Clinic plugin
+    - create_services_table.php
+    - create_team_table.php
+    - create_packages_table.php
+    - create_testimonials_table.php
+    - create_bookings_table.php
+    - create_contacts_table.php
+1.0.2:
+    - Create features table
+    - create_features_table.php
+    - Seed default data
+    - seed_default_data.php

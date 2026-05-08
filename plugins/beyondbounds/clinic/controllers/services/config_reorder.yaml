@@ -1,0 +1,3 @@
+title: Reorder Services
+modelClass: BeyondBounds\Clinic\Models\Service
+nameFrom: name

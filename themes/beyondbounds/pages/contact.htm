@@ -1,0 +1,58 @@
+title = "Contact"
+url = "/contact"
+layout = "default"
+[contactForm]
+==
+{% partial 'sections/page-hero'
+  kicker='Get In Touch'
+  title='Contact Beyond Bounds'
+  subtitle='Speak with our care team for appointments, referrals, and wellness questions.'
+  align='center'
+%}
+
+<section class="bb-shell pb-20">
+  <div class="grid lg:grid-cols-2 gap-8">
+    <div class="bb-panel">
+      <h2 class="bb-title mb-6">Send Message</h2>
+      <form data-request="onSubmitContact" class="space-y-4">
+        <input class="bb-input" name="name" placeholder="Name" required>
+        <input class="bb-input" name="email" type="email" placeholder="Email" required>
+        <input class="bb-input" name="subject" placeholder="Subject" required>
+        <textarea class="bb-input" name="message" placeholder="Message" rows="6"></textarea>
+        <button class="bb-btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="space-y-6">
+      <div class="bb-panel bb-hover-lift">
+        <h2 class="bb-title">Visit Our Clinic</h2>
+        <p class="text-on-surface-variant mt-4 whitespace-pre-line">{{ siteSettings.address ?: 'Area 47, Lilongwe, Malawi' }}</p>
+        {% if siteSettings and siteSettings.clinic_hours %}
+          <div class="text-on-surface-variant mt-3 space-y-1">
+            {% for row in siteSettings.clinic_hours %}
+              <p>{{ row.day }} {{ row.hours }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <p class="text-on-surface-variant mt-3">{{ siteSettings.primary_email ?: 'hello@beyondbounds.mw' }} | {{ siteSettings.primary_phone ?: '+265 888 000 000' }}</p>
+      </div>
+      <div class="bb-service-media-wrap bb-hover-lift">
+        <iframe
+          class="bb-service-media"
+          title="Area 47, Lilongwe Map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q={{ (siteMapQuery ?: 'Area 47, Lilongwe, Malawi')|url_encode }}&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% partial 'sections/cta-strip'
+  title='Prefer to book right away?'
+  subtitle='Choose a service and a time — we’ll confirm your appointment quickly.'
+  primaryHref='/book'
+  primaryLabel='Book Now'
+  secondaryHref='/services'
+  secondaryLabel='View Treatments'
+%}

@@ -1,0 +1,17 @@
+{
+  "themes/beyondbounds/assets/css/app.css": {
+    "file": "assets/app-DPMFvidt.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "themes/beyondbounds/assets/css/app.css",
+    "isEntry": true
+  },
+  "themes/beyondbounds/assets/js/app.js": {
+    "file": "assets/app-34mOoJaZ.js",
+    "name": "app",
+    "src": "themes/beyondbounds/assets/js/app.js",
+    "isEntry": true
+  }
+}

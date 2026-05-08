@@ -1,0 +1,87 @@
+name: Booking
+modelClass: BeyondBounds\Clinic\Models\Booking
+form:
+    tabs:
+        fields:
+            status:
+                label: Status
+                type: dropdown
+                tab: Details
+                span: left
+                default: new
+                options:
+                    new: New
+                    contacted: Contacted
+                    confirmed: Confirmed
+                    completed: Completed
+                    cancelled: Cancelled
+            booking_type:
+                label: Booking Type
+                type: dropdown
+                tab: Details
+                span: right
+                options:
+                    individual: Individual
+                    organization: Organization
+                emptyOption: Select type
+
+            full_name:
+                label: Full Name
+                type: text
+                required: true
+                tab: Details
+                span: left
+            email:
+                label: Email
+                type: text
+                required: true
+                tab: Details
+                span: right
+            phone:
+                label: Phone
+                type: text
+                tab: Details
+                span: left
+            service_requested:
+                label: Service Requested
+                type: text
+                tab: Details
+                span: right
+
+            preferred_date:
+                label: Preferred Date
+                type: datepicker
+                mode: date
+                tab: Schedule
+                span: left
+            preferred_time:
+                label: Preferred Time
+                type: text
+                tab: Schedule
+                span: right
+
+            organization_name:
+                label: Organization Name
+                type: text
+                tab: Organization
+                span: left
+                trigger:
+                    action: show
+                    field: booking_type
+                    condition: value[organization]
+            org_size:
+                label: Organization Size
+                type: text
+                tab: Organization
+                span: right
+                trigger:
+                    action: show
+                    field: booking_type
+                    condition: value[organization]
+
+            notes:
+                label: Notes
+                type: textarea
+                size: large
+                tab: Notes
+                span: full

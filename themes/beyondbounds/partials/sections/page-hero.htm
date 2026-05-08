@@ -1,0 +1,42 @@
+{#
+  Usage:
+  {% partial 'sections/page-hero'
+      kicker='...'
+      title='...'
+      subtitle='...'
+      align='center'|'left'
+      image=(siteSettings.about_hero_image|media)
+  %}
+#}
+
+{% set align = align ?: 'left' %}
+{% set hasImage = image is not empty %}
+
+<section class="relative overflow-hidden bb-section">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(76,214,251,0.14),transparent_38%),radial-gradient(circle_at_80%_10%,rgba(255,176,204,0.10),transparent_36%),linear-gradient(180deg,rgba(13,27,42,0.42),rgba(14,20,22,0.86))]"></div>
+  </div>
+  <div class="bb-shell {{ hasImage ? 'grid lg:grid-cols-12 gap-10 items-center' : '' }} {{ align == 'center' ? 'text-center' : '' }}">
+    <div class="{{ hasImage ? 'lg:col-span-6' : '' }} {{ align == 'center' ? 'max-w-3xl mx-auto' : 'max-w-3xl' }}">
+      {% if kicker %}
+        <p class="bb-kicker">{{ kicker }}</p>
+      {% endif %}
+      <h1 class="font-headline-xl text-white mt-3">{{ title }}</h1>
+      {% if subtitle %}
+        <p class="text-body-lg text-on-surface-variant mt-5">{{ subtitle }}</p>
+      {% endif %}
+      {% if slot is not empty %}
+        <div class="mt-8">{{ slot|raw }}</div>
+      {% endif %}
+    </div>
+
+    {% if hasImage %}
+      <div class="lg:col-span-6">
+        <div class="bb-service-media-wrap bb-hover-lift">
+          <img class="bb-service-media" src="{{ image }}" alt="{{ imageAlt ?: title }}">
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+

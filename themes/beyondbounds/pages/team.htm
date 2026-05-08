@@ -1,0 +1,44 @@
+title = "Team"
+url = "/team"
+layout = "default"
+[teamMembers]
+==
+{% partial 'sections/page-hero'
+  kicker='Our Specialists'
+  title='The Team Behind Your Recovery'
+  subtitle='A multidisciplinary group of clinicians focused on restorative care, athletic performance, and long-term movement wellness.'
+  align='center'
+%}
+
+<section class="bb-shell pb-24">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for member in team %}
+      <article class="group bb-hover-lift">
+        <div class="bb-service-media-wrap">
+          {% if member.photo %}
+            <img src="{{ member.photo.path }}" alt="{{ member.name }}" class="bb-service-media grayscale group-hover:grayscale-0">
+          {% else %}
+            <div class="bb-service-media bg-surface-container-high"></div>
+          {% endif %}
+        </div>
+        <h3 class="bb-service-title">{{ member.name }}</h3>
+        <p class="text-secondary mt-1 font-label-bold text-sm uppercase tracking-[0.08em]">{{ member.title }}</p>
+        <p class="bb-service-copy">{{ member.bio ?: (member.specializations ?: member.qualifications ?: 'Dedicated to restorative care and movement health.') }}</p>
+      </article>
+    {% else %}
+      <article class="bb-panel md:col-span-2 lg:col-span-3 text-center">
+        <h3 class="font-headline-md text-white">Meet the Team Soon</h3>
+        <p class="text-on-surface-variant mt-3">Our specialist profiles are being updated and will be available shortly.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% partial 'sections/cta-strip'
+  title='Work with a movement specialist'
+  subtitle='Book your session and we’ll match you to the right clinician for your goals.'
+  primaryHref='/book'
+  primaryLabel='Book Now'
+  secondaryHref='/contact'
+  secondaryLabel='Contact Us'
+%}

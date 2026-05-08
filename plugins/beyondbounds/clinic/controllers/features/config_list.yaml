@@ -1,0 +1,6 @@
+list: columns.yaml
+modelClass: BeyondBounds\Clinic\Models\Feature
+title: Features
+recordUrl: beyondbounds/clinic/features/update/:id
+toolbar:
+    buttons: list_toolbar

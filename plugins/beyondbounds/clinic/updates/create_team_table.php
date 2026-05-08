@@ -1,0 +1,3 @@
+<?php use October\Rain\Database\Schema\Blueprint; use October\Rain\Database\Updates\Migration; class CreateTeamTable extends Migration { public function up(){ \Schema::create('beyondbounds_clinic_team', function (Blueprint $table){ $table->id(); $table->string('name'); $table->string('title'); $table->text('bio')->nullable(); $table->string('qualifications')->nullable(); $table->string('specializations')->nullable(); $table->integer('sort_order')->default(0); $table->boolean('is_active')->default(true); $table->timestamps();}); } public function down(){ \Schema::dropIfExists('beyondbounds_clinic_team');}}
+
+

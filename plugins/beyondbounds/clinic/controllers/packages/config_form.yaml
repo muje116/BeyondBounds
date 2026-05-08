@@ -1,0 +1,71 @@
+name: OrgPackage
+modelClass: BeyondBounds\Clinic\Models\OrgPackage
+form:
+    tabs:
+        fields:
+            name:
+                label: Package Name
+                type: text
+                required: true
+                tab: Content
+                span: left
+            tier:
+                label: Tier
+                type: dropdown
+                tab: Content
+                span: right
+                emptyOption: Select tier
+                options:
+                    standard: Standard
+                    premium: Premium
+                    standalone: Standalone
+            description:
+                label: Description
+                type: textarea
+                size: large
+                tab: Content
+                span: full
+
+            org_size:
+                label: Organization Size
+                type: text
+                tab: Details
+                span: left
+                placeholder: "Up to 60 individuals"
+            duration:
+                label: Duration
+                type: text
+                tab: Details
+                span: right
+                placeholder: "1 Month"
+            price_mwk:
+                label: Price (MWK)
+                type: number
+                tab: Details
+                span: left
+
+            includes:
+                label: Included Items
+                type: taglist
+                separator: comma
+                tab: Details
+                span: full
+
+            is_featured:
+                label: Featured Package
+                type: switch
+                tab: Publishing
+                span: left
+                default: false
+            is_active:
+                label: Active
+                type: switch
+                tab: Publishing
+                span: left
+                default: true
+            sort_order:
+                label: Sort Order
+                type: number
+                tab: Publishing
+                span: right
+                default: 0

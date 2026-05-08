@@ -1,0 +1,70 @@
+title = "For Organizations"
+url = "/for-organizations"
+layout = "default"
+[orgPackages]
+[clinicFeatures]
+page_scope = "organizations"
+[contactForm]
+==
+{% partial 'sections/page-hero'
+  kicker='Corporate Wellness'
+  title=\"Elevate Your Team's Vitality and Resilience.\"
+  subtitle='Programs designed to reduce injury downtime, improve workforce performance, and build healthier movement habits across your organization.'
+  align='left'
+%}
+
+<section class="bb-shell pb-14">
+  <h2 class="bb-title mb-7">Organization Packages</h2>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {% for p in packages %}
+      <article class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)] {{ p.is_featured ? 'border-secondary/50' }}">
+        <p class="text-primary text-xs font-label-bold uppercase tracking-[0.16em]">{{ p.tier ?: 'Program' }}</p>
+        <h3 class="font-headline-md text-white mt-2">{{ p.name }}</h3>
+        <p class="text-on-surface-variant mt-3">{{ p.description ?: 'Tailored corporate physiotherapy package for ' ~ p.org_size ~ '.' }}</p>
+      </article>
+    {% else %}
+      <article class="bb-panel md:col-span-2 xl:col-span-3 text-center">
+        <h3 class="font-headline-md text-white">Organization Plans Coming Soon</h3>
+        <p class="text-on-surface-variant mt-3">Our corporate care options are being refined. Reach out and we will tailor a program for your team.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="bb-shell pb-14">
+  <h2 class="bb-title mb-7">Program Features</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    {% for feature in features %}
+      <article class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]">
+        <h3 class="font-headline-md text-white">{{ feature.title }}</h3>
+        <p class="text-on-surface-variant mt-3">{{ feature.description }}</p>
+      </article>
+    {% else %}
+      <article class="bb-panel md:col-span-3 text-center">
+        <p class="text-on-surface-variant">Program highlights will be listed here shortly.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="bb-shell pb-20">
+  <div class="bb-card">
+    <h2 class="bb-title mb-6">Partnership Inquiry</h2>
+    <form data-request="onSubmitContact" class="grid md:grid-cols-2 gap-4">
+      <input class="bb-input" name="name" placeholder="Name" required>
+      <input class="bb-input" name="email" type="email" placeholder="Work Email" required>
+      <input class="bb-input md:col-span-2" name="subject" placeholder="Company + Inquiry Type" required>
+      <textarea class="bb-input md:col-span-2" name="message" rows="5" placeholder="Tell us about your team needs"></textarea>
+      <button class="bb-btn-primary md:col-span-2 justify-self-start" type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+</section>
+
+{% partial 'sections/cta-strip'
+  title='Build a healthier workforce'
+  subtitle='Share your headcount and goals — we’ll propose a program structure that fits your team.'
+  primaryHref='/contact'
+  primaryLabel='Start a Partnership'
+  secondaryHref='/book'
+  secondaryLabel='Book a Talk'
+%}

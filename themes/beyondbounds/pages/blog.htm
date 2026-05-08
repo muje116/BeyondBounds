@@ -1,0 +1,29 @@
+title = "Blog"
+url = "/blog"
+layout = "default"
+[blogPosts]
+postPage = "blog-post"
+==
+<section class="bb-page-hero text-center">
+  <p class="bb-kicker">Knowledge Hub</p>
+  <h1 class="font-headline-xl text-white mt-3">Insights for Movement</h1>
+  <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Expert advice on recovery, posture, performance, and sustainable wellness from the Beyond Bounds team.</p>
+</section>
+
+<section class="bb-shell pb-24">
+  <div class="grid md:grid-cols-12 gap-8">
+    {% for post in blogPosts.posts %}
+      <article class="bb-panel bb-hover-lift {{ loop.first ? 'md:col-span-8' : 'md:col-span-4' }}">
+        <p class="text-primary text-xs font-label-bold uppercase tracking-[0.16em]">{{ post.published_at|date('M d, Y') }}</p>
+        <h2 class="font-headline-md text-white mt-3"><a href="{{ post.url }}" class="hover:text-primary transition-colors">{{ post.title }}</a></h2>
+        <p class="text-on-surface-variant mt-4">{{ post.summary }}</p>
+        <a href="{{ post.url }}" class="text-secondary font-label-bold mt-6 inline-flex items-center gap-2">Read Article <span aria-hidden="true">&rarr;</span></a>
+      </article>
+    {% else %}
+      <article class="bb-panel md:col-span-12 text-center">
+        <h3 class="font-headline-md text-white">New Insights On The Way</h3>
+        <p class="text-on-surface-variant mt-3">We are preparing practical movement and recovery articles. Check back soon.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>

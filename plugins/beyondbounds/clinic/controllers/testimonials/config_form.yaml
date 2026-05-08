@@ -1,0 +1,31 @@
+name: Testimonial
+modelClass: BeyondBounds\Clinic\Models\Testimonial
+form:
+    tabs:
+        fields:
+            client_name:
+                label: Client Name
+                type: text
+                required: true
+                tab: Content
+                span: left
+            rating:
+                label: Rating
+                type: number
+                tab: Content
+                span: right
+                default: 5
+                comment: Use 1 to 5
+            quote:
+                label: Quote
+                type: textarea
+                size: large
+                required: true
+                tab: Content
+                span: full
+            is_active:
+                label: Active
+                type: switch
+                tab: Publishing
+                span: left
+                default: true

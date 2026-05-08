@@ -1,0 +1,1 @@
+<?php namespace BeyondBounds\Clinic\Models; use Model; class Testimonial extends Model { use \October\Rain\Database\Traits\Validation; public $table='beyondbounds_clinic_testimonials'; public $rules=['client_name'=>'required','quote'=>'required']; public $fillable=['client_name','quote','rating','is_active'];}
