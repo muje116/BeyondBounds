@@ -1,0 +1,2 @@
+<?php namespace BeyondBounds\Clinic\Models; use Model;
+class OrgPackage extends Model { use \October\Rain\Database\Traits\Validation; use \October\Rain\Database\Traits\Sortable; public $table='beyondbounds_clinic_packages'; public $rules=['name'=>'required','tier'=>'required']; protected $jsonable=['includes']; public $fillable=['name','tier','includes','org_size','duration','price_mwk','description','is_featured','sort_order','is_active'];}

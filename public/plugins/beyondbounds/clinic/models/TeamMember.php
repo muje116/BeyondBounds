@@ -1,0 +1,2 @@
+<?php namespace BeyondBounds\Clinic\Models; use Model;
+class TeamMember extends Model { use \October\Rain\Database\Traits\Validation; use \October\Rain\Database\Traits\Sortable; public $table='beyondbounds_clinic_team'; public $rules=['name'=>'required','title'=>'required']; public $attachOne=['photo'=>\System\Models\File::class]; public $fillable=['name','title','bio','qualifications','specializations','sort_order','is_active'];}

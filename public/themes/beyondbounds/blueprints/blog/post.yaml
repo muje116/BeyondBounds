@@ -1,0 +1,47 @@
+uuid: edcd102e-0525-4e4d-b07e-633ae6c18db7
+handle: Blog\Post
+type: stream
+name: Post
+drafts: true
+
+customMessages:
+    buttonCreate: New Post
+
+primaryNavigation:
+    label: Blog
+    icon: octo-icon-file
+    order: 95
+
+navigation:
+    label: Posts
+    icon: octo-icon-pencil
+    order: 100
+
+fields:
+    banner:
+        label: Featured Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        tab: Content
+        span: full
+
+    featured_text:
+        label: Summary
+        type: textarea
+        size: small
+        tab: Content
+        span: full
+
+    categories:
+        label: Categories
+        type: entries
+        source: Blog\Category
+        tab: Content
+        span: full
+
+    content:
+        label: Content
+        type: richeditor
+        tab: Content
+        span: full

@@ -1,0 +1,3 @@
+title: Reorder Testimonial
+modelClass: BeyondBounds\Clinic\Models\Testimonial
+nameFrom: client_name

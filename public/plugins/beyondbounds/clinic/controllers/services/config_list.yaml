@@ -1,0 +1,6 @@
+list: columns.yaml
+modelClass: BeyondBounds\Clinic\Models\Service
+title: Services
+recordUrl: beyondbounds/clinic/services/update/:id
+toolbar:
+    buttons: list_toolbar

@@ -28,12 +28,12 @@ module.exports = {
         'label-bold': ['Manrope', 'sans-serif']
       },
       fontSize: {
-        'headline-xl': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'headline-lg': ['32px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'headline-md': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
-        'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
-        'body-md': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
-        'label-bold': ['14px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '700' }]
+        'headline-xl': ['56px', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '800' }],
+        'headline-lg': ['40px', { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '1.25', fontWeight: '700' }],
+        'body-lg': ['20px', { lineHeight: '1.65', fontWeight: '500' }],
+        'body-md': ['18px', { lineHeight: '1.6', fontWeight: '500' }],
+        'label-bold': ['15px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '700' }]
       }
     }
   },

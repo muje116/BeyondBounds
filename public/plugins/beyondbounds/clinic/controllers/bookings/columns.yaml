@@ -1,0 +1,6 @@
+columns:
+    full_name: { label: Name, searchable: true }
+    email: { label: Email, searchable: true }
+    phone: { label: Phone }
+    preferred_date: { label: Preferred Date, type: date }
+    created_at: { label: Created, type: datetime }

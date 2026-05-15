@@ -31,3 +31,14 @@ nbproject
 /bootstrap/compiled.php
 /vendor
 /vendor_drm
+
+# Dependencies / packages
+**/node_modules/
+**/vendor/
+
+# Build artifacts
+/public/build/
+/public/hot
+**/dist/
+**/build/
+**/.vite/

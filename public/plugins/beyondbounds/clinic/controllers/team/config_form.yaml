@@ -1,0 +1,54 @@
+name: TeamMember
+modelClass: BeyondBounds\Clinic\Models\TeamMember
+form:
+    tabs:
+        fields:
+            name:
+                label: Name
+                type: text
+                required: true
+                tab: Profile
+                span: left
+            title:
+                label: Role / Title
+                type: text
+                required: true
+                tab: Profile
+                span: right
+            bio:
+                label: Bio
+                type: textarea
+                size: large
+                tab: Profile
+                span: full
+
+            qualifications:
+                label: Qualifications
+                type: text
+                tab: Details
+                span: left
+            specializations:
+                label: Specializations
+                type: text
+                tab: Details
+                span: right
+
+            photo:
+                label: Profile Photo
+                type: fileupload
+                mode: image
+                tab: Media
+                span: full
+
+            is_active:
+                label: Active
+                type: switch
+                tab: Publishing
+                span: left
+                default: true
+            sort_order:
+                label: Sort Order
+                type: number
+                tab: Publishing
+                span: right
+                default: 0

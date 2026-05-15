@@ -1,0 +1,3 @@
+<?php use October\Rain\Database\Schema\Blueprint; use October\Rain\Database\Updates\Migration; class CreatePackagesTable extends Migration { public function up(){ \Schema::create('beyondbounds_clinic_packages', function (Blueprint $table){ $table->id(); $table->string('name'); $table->enum('tier',['standard','premium','standalone']); $table->json('includes')->nullable(); $table->string('org_size'); $table->string('duration'); $table->decimal('price_mwk',12,2)->nullable(); $table->text('description')->nullable(); $table->boolean('is_featured')->default(false); $table->integer('sort_order')->default(0); $table->boolean('is_active')->default(true); $table->timestamps();}); } public function down(){ \Schema::dropIfExists('beyondbounds_clinic_packages');}}
+
+

@@ -1,0 +1,6 @@
+columns:
+    name: { label: Name, searchable: true }
+    category: { label: Category }
+    is_featured: { label: Featured, type: switch }
+    is_active: { label: Active, type: switch }
+    sort_order: { label: Order }

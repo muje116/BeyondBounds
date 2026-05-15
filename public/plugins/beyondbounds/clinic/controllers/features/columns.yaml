@@ -1,0 +1,7 @@
+columns:
+    title: { label: Title, searchable: true }
+    page_scope: { label: Scope }
+    layout_variant: { label: Layout }
+    is_featured: { label: Featured, type: switch }
+    is_active: { label: Active, type: switch }
+    sort_order: { label: Order }

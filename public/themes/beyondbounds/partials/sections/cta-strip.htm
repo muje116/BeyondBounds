@@ -1,0 +1,28 @@
+{#
+  Usage:
+  {% partial 'sections/cta-strip'
+      title='Ready to start your recovery?'
+      subtitle='Tell us what you need — our team will confirm your next step quickly.'
+      primaryHref='/book'
+      primaryLabel='Book Now'
+      secondaryHref='/contact'
+      secondaryLabel='Contact Us'
+  %}
+#}
+
+<section class="bb-shell pb-20">
+  <div class="bb-panel bb-hover-lift relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-70 bg-[radial-gradient(circle_at_10%_30%,rgba(76,214,251,0.16),transparent_45%),radial-gradient(circle_at_90%_10%,rgba(255,176,204,0.12),transparent_42%)]"></div>
+    <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8">
+        <h2 class="font-headline-lg text-white">{{ title ?: 'Ready to start your recovery?' }}</h2>
+        <p class="text-on-surface-variant mt-3">{{ subtitle ?: 'Tell us what you need — our team will confirm your next step quickly.' }}</p>
+      </div>
+      <div class="lg:col-span-4 flex flex-wrap gap-4 lg:justify-end">
+        <a href="{{ primaryHref ?: '/book' }}" class="bb-btn-primary">{{ primaryLabel ?: 'Book Now' }}</a>
+        <a href="{{ secondaryHref ?: '/contact' }}" class="bb-btn-ghost">{{ secondaryLabel ?: 'Contact Us' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+

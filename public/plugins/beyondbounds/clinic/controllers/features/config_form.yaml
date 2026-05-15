@@ -1,0 +1,83 @@
+name: Feature
+modelClass: BeyondBounds\Clinic\Models\Feature
+form:
+    tabs:
+        fields:
+            title:
+                label: Title
+                type: text
+                required: true
+                tab: Content
+                span: left
+            slug:
+                label: Slug
+                type: text
+                preset: { field: title, type: slug }
+                tab: Content
+                span: right
+            subtitle:
+                label: Subtitle
+                type: text
+                tab: Content
+                span: full
+            description:
+                label: Description
+                type: textarea
+                size: large
+                tab: Content
+                span: full
+
+            page_scope:
+                label: Page Scope
+                type: dropdown
+                tab: Placement
+                span: left
+                emptyOption: Select page
+                options:
+                    home: Home
+                    services: Services
+                    organizations: Organizations
+                    book: Book
+                    blog: Blog
+                    about: About
+            layout_variant:
+                label: Layout Variant
+                type: dropdown
+                tab: Placement
+                span: right
+                options:
+                    card: Card
+                    bento: Bento
+                    highlight: Highlight
+            icon_class:
+                label: Icon (Material)
+                type: text
+                tab: Placement
+                span: left
+                comment: "Example: fitness_center"
+
+            image:
+                label: Feature Image
+                type: fileupload
+                mode: image
+                tab: Media
+                span: full
+
+            is_featured:
+                label: Featured
+                type: switch
+                tab: Publishing
+                span: left
+                default: false
+            is_active:
+                label: Active
+                type: switch
+                tab: Publishing
+                span: left
+                default: true
+            sort_order:
+                label: Sort Order
+                type: number
+                tab: Publishing
+                span: right
+                default: 0

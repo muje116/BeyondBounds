@@ -1,0 +1,1 @@
+<?php namespace BeyondBounds\Clinic\Models; use Model; class Contact extends Model { use \October\Rain\Database\Traits\Validation; public $table='beyondbounds_clinic_contacts'; public $rules=['name'=>'required','email'=>'required|email','subject'=>'required','message'=>'required']; public $fillable=['name','email','phone','subject','message','is_read'];}

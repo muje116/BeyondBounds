@@ -1,0 +1,3 @@
+title: Reorder Contact
+modelClass: BeyondBounds\Clinic\Models\Contact
+nameFrom: name

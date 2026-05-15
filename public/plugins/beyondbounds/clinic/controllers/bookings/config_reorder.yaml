@@ -1,0 +1,3 @@
+title: Reorder Booking
+modelClass: BeyondBounds\Clinic\Models\Booking
+nameFrom: full_name

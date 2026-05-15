@@ -1,0 +1,3 @@
+title: Reorder OrgPackage
+modelClass: BeyondBounds\Clinic\Models\OrgPackage
+nameFrom: name

@@ -1,0 +1,5 @@
+columns:
+    name: { label: Name, searchable: true }
+    title: { label: Role }
+    is_active: { label: Active, type: switch }
+    sort_order: { label: Order }
