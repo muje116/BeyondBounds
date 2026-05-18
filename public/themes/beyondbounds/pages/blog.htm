@@ -42,50 +42,84 @@ handle = "Blog\Post"
 {% endfor %}
 
 <section class="bb-blog-shell pb-24">
-  <div class="grid lg:grid-cols-12 gap-8 items-start">
-    <aside class="lg:col-span-4 bb-panel lg:sticky lg:top-28">
-      <form class="space-y-4" method="get">
-        <input class="bb-input" type="search" name="q" value="{{ searchQuery }}" placeholder="Search articles...">
-        <input type="hidden" name="cat" value="{{ selectedCategory }}">
-        <button class="bb-btn-primary w-full justify-center" type="submit">Search</button>
-      </form>
-      <div class="mt-5">
-        <p class="text-xs font-label-bold tracking-[0.12em] uppercase text-slate-500">Filter by Category</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="/blog{% if searchQuery %}?q={{ searchQuery|url_encode }}{% endif %}" class="bb-blog-tag {{ selectedCategory == '' ? 'ring-1 ring-[#0077b6]' : '' }}">All</a>
+  {% set featuredPost = filteredPosts|length ? filteredPosts[0] : null %}
+  {% set remainingPosts = [] %}
+  {% if filteredPosts|length > 1 %}
+    {% set remainingPosts = filteredPosts|slice(1) %}
+  {% endif %}
+
+  {% if featuredPost %}
+    <article class="bb-featured-story mb-12">
+      <div class="bb-featured-media">
+        {% if featuredPost.banner %}
+          <img src="{{ featuredPost.banner.path }}" alt="{{ featuredPost.title }}" class="h-full w-full object-cover">
+        {% else %}
+          <div class="h-full w-full bg-gradient-to-br from-[#ff2a7f] via-[#ff4c29] to-[#ffd166]"></div>
+        {% endif %}
+        <span class="bb-blog-tag bb-feature-pill">Featured</span>
+      </div>
+      <div class="bb-featured-content">
+        <p class="bb-featured-meta">{{ (featuredPost.categories and featuredPost.categories|length) ? featuredPost.categories[0].title : 'Pageant News' }} <span>&bull;</span> {{ featuredPost.published_at|date('F d, Y') }}</p>
+        <h2 class="bb-featured-title">{{ featuredPost.title }}</h2>
+        <p class="bb-featured-copy">{{ featuredPost.featured_text }}</p>
+        <a href="{{ 'blog-post'|page({ slug: featuredPost.slug }) }}" class="bb-btn-primary mt-6 inline-flex items-center gap-2">Read Full Story <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+  {% endif %}
+
+  <div class="grid lg:grid-cols-12 gap-10 items-start">
+    <aside class="lg:col-span-4 xl:col-span-3 space-y-6 lg:sticky lg:top-28">
+      <div class="bb-panel">
+        <p class="text-sm font-label-bold tracking-[0.12em] uppercase text-[#1c2730] mb-4">Search</p>
+        <form class="space-y-4" method="get">
+          <input class="bb-input" type="search" name="q" value="{{ searchQuery }}" placeholder="Keywords...">
+          <input type="hidden" name="cat" value="{{ selectedCategory }}">
+        </form>
+      </div>
+
+      <div class="bb-panel">
+        <p class="text-sm font-label-bold tracking-[0.12em] uppercase text-[#1c2730] mb-4">Categories</p>
+        <div class="space-y-2">
+          <a href="/blog{% if searchQuery %}?q={{ searchQuery|url_encode }}{% endif %}" class="bb-filter-row {{ selectedCategory == '' ? 'bb-filter-row-active' : '' }}">All Articles</a>
           {% for slug, name in categoryIndex %}
-            <a href="/blog?cat={{ slug|url_encode }}{% if searchQuery %}&q={{ searchQuery|url_encode }}{% endif %}" class="bb-blog-tag {{ selectedCategory == slug ? 'ring-1 ring-[#0077b6]' : '' }}">{{ name }}</a>
+            <a href="/blog?cat={{ slug|url_encode }}{% if searchQuery %}&q={{ searchQuery|url_encode }}{% endif %}" class="bb-filter-row {{ selectedCategory == slug ? 'bb-filter-row-active' : '' }}">{{ name }}</a>
           {% endfor %}
         </div>
       </div>
     </aside>
 
-    <div class="lg:col-span-8 space-y-6">
-      {% for post in filteredPosts %}
-        <article class="bb-blog-card">
+    <div class="lg:col-span-8 xl:col-span-9">
+      <div class="mb-6 border-b border-slate-200 pb-4">
+        <h3 class="font-headline-lg text-[#111827]">Latest Updates</h3>
+        <p class="text-lg text-slate-600">Showing {{ filteredPosts|length }} stories found</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+      {% for post in (remainingPosts|length ? remainingPosts : filteredPosts) %}
+        <article class="bb-blog-card bb-blog-card-large">
           {% if post.banner %}
-            <img src="{{ post.banner.path }}" alt="{{ post.title }}" class="h-56 w-full object-cover">
+            <img src="{{ post.banner.path }}" alt="{{ post.title }}" class="h-72 w-full object-cover">
           {% else %}
-            <div class="h-56 bg-gradient-to-br from-[#0f766e] via-[#0b3a8f] to-[#0f172a]"></div>
+            <div class="h-72 bg-gradient-to-br from-[#ff2a7f] via-[#ff4c29] to-[#ffd166]"></div>
           {% endif %}
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-3 text-xs">
-              <span class="bb-blog-tag">Featured</span>
+          <div class="p-7">
+            <div class="flex items-center justify-between gap-3 text-sm">
+              <span class="bb-blog-tag">{{ (post.categories and post.categories|length) ? post.categories[0].title : 'News' }}</span>
               <span class="text-slate-500">{{ post.published_at|date('M d, Y') }}</span>
             </div>
-            <h2 class="font-headline-md mt-4">
+            <h2 class="font-headline-md mt-5">
               <a href="{{ 'blog-post'|page({ slug: post.slug }) }}" class="hover:text-[#0077b6] dark:hover:text-[#00b4d8] transition-colors">{{ post.title }}</a>
             </h2>
-            <p class="text-slate-600 dark:text-slate-300 mt-4 leading-7">{{ post.featured_text }}</p>
-            <a href="{{ 'blog-post'|page({ slug: post.slug }) }}" class="text-[#0077b6] dark:text-[#00b4d8] font-label-bold mt-6 inline-flex items-center gap-2">Read More <span aria-hidden="true">&rarr;</span></a>
+            <p class="text-slate-700 dark:text-slate-200 mt-4 text-lg leading-8">{{ post.featured_text }}</p>
+            <a href="{{ 'blog-post'|page({ slug: post.slug }) }}" class="text-[#0077b6] dark:text-[#00b4d8] font-label-bold mt-6 inline-flex items-center gap-2 text-lg">Read More <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
       {% else %}
-        <article class="bb-panel text-center">
+        <article class="bb-panel text-center md:col-span-2">
           <h3 class="font-headline-md">No Matching Articles</h3>
           <p class="text-on-surface-variant mt-3">Try a different search term or category.</p>
         </article>
       {% endfor %}
+      </div>
     </div>
   </div>
 </section>

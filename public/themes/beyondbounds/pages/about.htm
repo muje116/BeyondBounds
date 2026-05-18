@@ -88,6 +88,28 @@ layout = "default"
   </div>
 </section>
 
+<section class="bb-shell pb-24">
+  <div class="grid md:grid-cols-3 gap-7">
+    <article class="bb-detail-card">
+      <span class="material-symbols-outlined bb-detail-icon">location_on</span>
+      <h3 class="bb-detail-title">Our Location</h3>
+      <p class="bb-detail-copy">{{ siteSettings.address ?: 'HewKam House, Area 43, Plot 43/1314' }}</p>
+      <p class="bb-detail-copy">{{ siteSettings.city ?: 'Lilongwe, Malawi' }}</p>
+    </article>
+    <article class="bb-detail-card">
+      <span class="material-symbols-outlined bb-detail-icon">call</span>
+      <h3 class="bb-detail-title">Phone Numbers</h3>
+      <p class="bb-detail-copy">{{ siteSettings.primary_phone ?: '+265 996 263 843' }}</p>
+      <p class="bb-detail-copy">{{ siteSettings.secondary_phone ?: '+265 882 922 062' }}</p>
+    </article>
+    <article class="bb-detail-card">
+      <span class="material-symbols-outlined bb-detail-icon">mail</span>
+      <h3 class="bb-detail-title">Email Address</h3>
+      <p class="bb-detail-copy">{{ siteSettings.primary_email ?: 'info@missmw.org' }}</p>
+    </article>
+  </div>
+</section>
+
 {% partial 'sections/cta-strip'
   title='Ready to go beyond your limitations?'
   subtitle='Book your appointment and we’ll build a recovery plan that fits your life.'

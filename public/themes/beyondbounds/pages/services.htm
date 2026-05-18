@@ -42,13 +42,15 @@ page_scope = "services"
               <span class="material-symbols-outlined text-primary text-6xl opacity-90">{{ s.icon_class ?: 'self_improvement' }}</span>
             </div>
           {% endif %}
+          <div class="bb-service-overlay">
+            <div class="flex items-start justify-between gap-4">
+              <h2 class="bb-service-title bb-service-title-overlay">{{ s.name }}</h2>
+              {% if s.is_featured %}<span class="bb-service-featured-pill">Featured</span>{% endif %}
+            </div>
+            <p class="bb-service-copy bb-service-copy-overlay">{{ s.short_description }}</p>
+          </div>
           <span class="bb-service-pill">{{ s.category ?: 'Treatment' }}</span>
         </div>
-        <div class="mt-5 flex items-start justify-between gap-4">
-          <h2 class="bb-service-title">{{ s.name }}</h2>
-          {% if s.is_featured %}<span class="text-secondary text-xs font-label-bold uppercase tracking-[0.12em]">Featured</span>{% endif %}
-        </div>
-        <p class="bb-service-copy">{{ s.short_description }}</p>
       </article>
     {% else %}
       <article class="bb-panel md:col-span-2 xl:col-span-3 text-center">
