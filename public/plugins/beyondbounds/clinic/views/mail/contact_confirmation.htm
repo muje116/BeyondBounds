@@ -1,0 +1,7 @@
+<p>Dear {{ contact.name }},</p>
+<p>Thank you for contacting Beyond Bounds Physiotherapy. We have received your message and our team will respond shortly.</p>
+<table>
+<tr><td><strong>Subject:</strong></td><td>{{ contact.subject }}</td></tr>
+{% if contact.phone %}<tr><td><strong>Phone:</strong></td><td>{{ contact.phone }}</td></tr>{% endif %}
+</table>
+<p>Regards,<br>Beyond Bounds Physiotherapy</p>

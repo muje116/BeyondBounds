@@ -9,7 +9,6 @@
   %}
 #}
 
-{% set align = align ?: 'left' %}
 {% set hasImage = image is not empty %}
 
 <section class="bb-hero-fullbleed relative z-0 isolate min-h-[58vh] flex items-center bb-section overflow-hidden">
@@ -20,14 +19,14 @@
     <div class="absolute inset-0 bg-gradient-to-r from-[#071425]/92 via-[#071425]/62 to-[#071425]/40"></div>
   </div>
 
-  <div class="bb-shell w-full {{ align == 'center' ? 'text-center' : '' }}">
-    <div class="{{ align == 'center' ? 'max-w-3xl mx-auto' : 'max-w-3xl' }}">
+  <div class="bb-shell w-full text-center">
+    <div class="max-w-3xl mx-auto">
       {% if kicker %}
-        <p class="bb-kicker text-white/90">{{ kicker }}</p>
+        <p class="bb-material-pill bb-hero-animate-kicker">{{ kicker }}</p>
       {% endif %}
-      <h1 class="font-headline-xl text-white mt-3">{{ title }}</h1>
+      <h1 class="font-headline-xl bb-hero-title bb-hero-animate-title mt-3">{{ title }}</h1>
       {% if subtitle %}
-        <p class="text-body-lg text-white/85 mt-5">{{ subtitle }}</p>
+        <p class="text-body-lg text-white/85 mt-5 bb-hero-animate-copy">{{ subtitle }}</p>
       {% endif %}
       {% if slot is not empty %}
         <div class="mt-8">{{ slot|raw }}</div>

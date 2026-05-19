@@ -2,5 +2,8 @@ columns:
     full_name: { label: Name, searchable: true }
     email: { label: Email, searchable: true }
     phone: { label: Phone }
+    service_requested: { label: Service }
     preferred_date: { label: Preferred Date, type: date }
+    preferred_time: { label: Preferred Time }
+    status: { label: Status }
     created_at: { label: Created, type: datetime }

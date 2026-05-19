@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use BeyondBounds\Clinic\Models\Booking;
+use BeyondBounds\Clinic\Models\Settings;
 use Validator;
 use ValidationException;
 
@@ -48,13 +49,16 @@ class BookingForm extends ComponentBase
         ]);
         $booking->save();
 
+        $adminEmail = Settings::get('primary_email') ?: 'beyondboundsclinic@gmail.com';
+
         try {
             \Mail::send('beyondbounds.clinic::mail.booking_confirmation', ['booking' => $booking], function ($m) use ($booking) {
                 $m->to($booking->email, $booking->full_name);
                 $m->subject('Booking Request Received - Beyond Bounds Physiotherapy');
             });
-            \Mail::send('beyondbounds.clinic::mail.booking_admin', ['booking' => $booking], function ($m) {
-                $m->to('beyondboundsclinic@gmail.com', 'Beyond Bounds Admin');
+            \Mail::send('beyondbounds.clinic::mail.booking_admin', ['booking' => $booking], function ($m) use ($adminEmail, $booking) {
+                $m->to($adminEmail, 'Beyond Bounds Admin');
+                $m->replyTo($booking->email, $booking->full_name);
                 $m->subject('New Booking Request');
             });
         } catch (\Throwable $e) {

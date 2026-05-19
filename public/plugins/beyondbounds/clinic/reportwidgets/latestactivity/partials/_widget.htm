@@ -1,0 +1,38 @@
+<div class="report-widget">
+    <h3>Latest Activity</h3>
+    <div class="p-3">
+        <h4>Recent Bookings</h4>
+        <?php if ($bookings->count()): ?>
+            <ul>
+                <?php foreach ($bookings as $booking): ?>
+                    <li>
+                        <strong><?= e($booking->full_name) ?></strong>
+                        (<?= e($booking->service_requested) ?>)
+                        - <?= e($booking->preferred_date) ?> <?= e($booking->preferred_time) ?>
+                        - <em><?= e($booking->status) ?></em>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        <?php else: ?>
+            <p>No bookings yet.</p>
+        <?php endif ?>
+
+        <hr>
+
+        <h4>Recent Contacts</h4>
+        <?php if ($contacts->count()): ?>
+            <ul>
+                <?php foreach ($contacts as $contact): ?>
+                    <li>
+                        <strong><?= e($contact->name) ?></strong>
+                        (<?= e($contact->email) ?>)
+                        - <?= e($contact->subject) ?>
+                        <?php if ($contact->is_read): ?><em> [Read]</em><?php endif ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        <?php else: ?>
+            <p>No contacts yet.</p>
+        <?php endif ?>
+    </div>
+</div>

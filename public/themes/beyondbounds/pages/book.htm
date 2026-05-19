@@ -23,7 +23,7 @@ page_scope = "book"
       <form
         data-request="bookingForm::onSubmitBooking"
         data-request-flash
-        data-request-update="'#bookingFormResult': '@result'"
+        data-request-update="'bookingForm::result': '#bookingFormResult'"
         class="grid md:grid-cols-2 gap-4"
       >
         <input class="bb-input" name="full_name" placeholder="Full Name" required>

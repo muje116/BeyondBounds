@@ -97,9 +97,16 @@
     filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
   }
 
-  .bb-material-pill {
-    @apply inline-flex items-center rounded-full border border-emerald-300 bg-emerald-100 px-6 py-3 text-sm font-label-bold text-emerald-700 mb-5;
-  }
+.bb-material-pill {
+  @apply inline-flex items-center rounded-full border border-emerald-300 bg-emerald-100 px-6 py-3 text-sm font-label-bold text-emerald-700 mb-5;
+}
+
+.bb-hero-fullbleed .bb-material-pill {
+  border-color: rgba(255, 178, 214, 0.55);
+  background: linear-gradient(120deg, rgba(245, 66, 170, 0.24), rgba(147, 51, 234, 0.2));
+  color: #ffd7f0;
+  box-shadow: 0 12px 28px -18px rgba(245, 66, 170, 0.65);
+}
 
   .bb-hero-title {
     color: #f542aa;

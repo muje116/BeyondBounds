@@ -31,3 +31,6 @@ html.dark .bb-filter-row-active{background:rgba(126,34,206,.2);color:#e6d3ff}
 
 /* Global bold headers override */
 h1,h2,h3,h4,h5,h6,.font-headline-xl,.font-headline-lg,.font-headline-md,.bb-title,.bb-service-title,.bb-detail-title,.bb-featured-title{font-weight:800!important}
+
+/* Hero banner visual parity with home */
+.bb-hero-fullbleed .bb-material-pill{border-color:rgba(255,178,214,.55);background:linear-gradient(120deg,rgba(245,66,170,.24),rgba(147,51,234,.2));color:#ffd7f0;box-shadow:0 12px 28px -18px rgba(245,66,170,.65)}

@@ -48,4 +48,14 @@ class Plugin extends PluginBase {
       'contacts'=>['label'=>'Contacts','icon'=>'icon-envelope','url'=>Backend::url('beyondbounds/clinic/contacts'), 'order'=>90]
     ]
   ]]; }
+
+  public function registerReportWidgets()
+  {
+    return [
+      'BeyondBounds\Clinic\ReportWidgets\LatestActivity' => [
+        'label' => 'Clinic Latest Activity',
+        'context' => 'dashboard',
+      ],
+    ];
+  }
 }

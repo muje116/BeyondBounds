@@ -1,5 +1,7 @@
 columns:
     name: { label: Name, searchable: true }
     email: { label: Email, searchable: true }
+    phone: { label: Phone }
     subject: { label: Subject }
+    is_read: { label: Read, type: switch }
     created_at: { label: Received, type: datetime }
