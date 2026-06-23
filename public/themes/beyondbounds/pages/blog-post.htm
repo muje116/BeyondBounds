@@ -14,9 +14,9 @@ identifier = "slug"
       {% if post.banner %}
         <img src="{{ post.banner.path }}" alt="{{ post.title }}" class="mt-6 w-full h-72 object-cover rounded-2xl">
       {% endif %}
-      <article class="bb-panel mt-8 prose max-w-none dark:prose-invert">{{ post.content|raw }}</article>
+      <article class="bb-panel bb-post-content mt-8 prose max-w-none dark:prose-invert">{{ post.content|raw }}</article>
       <div class="mt-8">
-        <a href="/blog" class="text-[#0077b6] dark:text-secondary font-label-bold inline-flex items-center gap-2">← Back to Blog</a>
+        <a href="/blog" class="text-[#0077b6] dark:text-secondary font-label-bold inline-flex items-center gap-2"><span aria-hidden="true">&larr;</span> Back to Blog</a>
       </div>
     </div>
   {% else %}

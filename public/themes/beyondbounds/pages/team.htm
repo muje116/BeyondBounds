@@ -35,7 +35,7 @@ layout = "default"
 <section class="bb-shell pb-24">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {% for member in team %}
-      <article class="group bb-hover-lift">
+      <article class="group bb-team-card bb-hover-lift">
         <div class="bb-service-media-wrap">
           {% if member.photo %}
             <img src="{{ member.photo.getPath() }}" alt="{{ member.name }}" class="bb-service-media grayscale group-hover:grayscale-0">
@@ -43,9 +43,11 @@ layout = "default"
             <div class="bb-service-media bg-surface-container-high"></div>
           {% endif %}
         </div>
-        <h3 class="bb-service-title">{{ member.name }}</h3>
-        <p class="text-secondary mt-1 font-label-bold text-sm uppercase tracking-[0.08em]">{{ member.title }}</p>
-        <p class="bb-service-copy">{{ member.bio ?: (member.specializations ?: member.qualifications ?: 'Dedicated to restorative care and movement health.') }}</p>
+        <div class="bb-team-card-body">
+          <h3 class="bb-service-title mt-0">{{ member.name }}</h3>
+          <p class="text-secondary mt-1 font-label-bold text-sm uppercase tracking-[0.08em]">{{ member.title }}</p>
+          <p class="bb-service-copy">{{ member.bio ?: (member.specializations ?: member.qualifications ?: 'Dedicated to restorative care and movement health.') }}</p>
+        </div>
       </article>
     {% else %}
       <article class="bb-panel md:col-span-2 lg:col-span-3 text-center">

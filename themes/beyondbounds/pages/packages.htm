@@ -31,7 +31,7 @@ layout = "default"
             {% if p.price_mwk %}
               MWK {{ p.price_mwk|number_format(0, '.', ',') }}
             {% else %}
-              Contact Us
+              <!-- Contact Us -->
             {% endif %}
           </p>
           <p class="bb-price-meta">{{ p.duration ?: 'Custom Period' }}</p>
