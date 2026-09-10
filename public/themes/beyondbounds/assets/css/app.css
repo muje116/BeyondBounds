@@ -329,14 +329,19 @@ html { font-size: 18px; }
   @apply px-5 pb-6 pt-5 md:px-6 md:pb-7;
 }
 .bb-post-content {
+  color: #263746;
+  --tw-prose-body: #263746;
+  --tw-prose-headings: #1c2730;
+  --tw-prose-links: #0077b6;
+  --tw-prose-bold: #1c2730;
   font-size: 1.05rem;
   line-height: 1.85;
 }
-.bb-post-content :where(p, li) {
-  color: #475569;
+.bb-post-content :where(p, li, blockquote, figcaption, td, th) {
+  color: #263746;
 }
-.bb-post-content :where(h2, h3, h4, strong) {
-  color: #0f172a;
+.bb-post-content :where(h1, h2, h3, h4, h5, h6, strong) {
+  color: #1c2730;
 }
 .bb-post-content :where(a) {
   color: #0077b6;
@@ -461,10 +466,17 @@ html.light .bb-detail-copy,
 html.light .bb-featured-copy {
   color: #334155;
 }
-html.light .bb-post-content :where(p, li, blockquote) {
-  color: #334155;
+html.light .bb-post-content {
+  color: #263746;
+  --tw-prose-body: #263746;
+  --tw-prose-headings: #1c2730;
+  --tw-prose-links: #0077b6;
+  --tw-prose-bold: #1c2730;
 }
-html.light .bb-post-content :where(h2, h3, h4, strong) {
+html.light .bb-post-content :where(p, li, blockquote, figcaption, td, th, code) {
+  color: #263746;
+}
+html.light .bb-post-content :where(h1, h2, h3, h4, h5, h6, strong) {
   color: #1c2730;
 }
 
@@ -568,10 +580,17 @@ html.dark .bb-filter-row-active {
   background: rgba(126, 34, 206, 0.2);
   color: #e6d3ff;
 }
-html.dark .bb-post-content :where(p, li, blockquote) {
+html.dark .bb-post-content {
+  color: #d2dee8;
+  --tw-prose-body: #d2dee8;
+  --tw-prose-headings: #eef4f8;
+  --tw-prose-links: #4cd6fb;
+  --tw-prose-bold: #eef4f8;
+}
+html.dark .bb-post-content :where(p, li, blockquote, figcaption, td, th, code) {
   color: #d2dee8;
 }
-html.dark .bb-post-content :where(h2, h3, h4, strong) {
+html.dark .bb-post-content :where(h1, h2, h3, h4, h5, h6, strong) {
   color: #eef4f8;
 }
 

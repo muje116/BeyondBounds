@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   content: ['./themes/beyondbounds/**/*.htm','./themes/beyondbounds/**/*.html','./plugins/beyondbounds/**/*.htm'],
   theme: {
     extend: {
