@@ -18,7 +18,7 @@ description = "Default layout"
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ 'assets/css/app.compiled.css'|theme }}">
   {% if viteCss %}
@@ -26,11 +26,7 @@ description = "Default layout"
   {% endif %}
 </head>
 <body>
-  <div class="fixed inset-0 -z-20 bg-[radial-gradient(circle_at_12%_18%,rgba(76,214,251,0.14),transparent_32%),radial-gradient(circle_at_92%_78%,rgba(255,176,204,0.12),transparent_34%),radial-gradient(circle_at_50%_110%,rgba(0,180,216,0.10),transparent_36%)]"></div>
-  <div class="fixed inset-0 -z-10 opacity-30 pointer-events-none">
-    <div class="absolute -top-24 -left-20 w-[34rem] h-[34rem] rounded-full blur-3xl bg-gradient-to-br from-primary/20 via-transparent to-secondary/20"></div>
-    <div class="absolute -bottom-28 -right-24 w-[38rem] h-[38rem] rounded-full blur-3xl bg-gradient-to-tr from-secondary/15 via-transparent to-primary/15"></div>
-  </div>
+  <div class="bb-site-atmosphere" aria-hidden="true"></div>
   {% partial 'nav/header' %}
   <main class="relative z-0">{% page %}</main>
   {% partial 'nav/footer' %}
@@ -86,7 +82,7 @@ description = "Default layout"
         });
       }
 
-      var revealNodes = document.querySelectorAll('section, .bb-card, .bb-panel, .bb-service-card');
+      var revealNodes = document.querySelectorAll('section:not(.bb-hero-fullbleed):not(.bb-page-hero), .bb-card, .bb-panel, .bb-service-card, .bb-team-card');
       revealNodes.forEach(function (node) {
         node.classList.add('bb-reveal-target');
       });

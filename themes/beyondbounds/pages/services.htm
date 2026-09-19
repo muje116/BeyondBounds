@@ -10,16 +10,17 @@ page_scope = "services"
   kicker='Clinical Programs'
   title='Specialized Treatments That Restore Confidence'
   subtitle='Personalized paths to recovery and performance, grounded in evidence-based physiotherapy and delivered by movement specialists.'
-  align='left'
+  align='center'
   image=servicesHero
   imageAlt='Physiotherapy service session'
 %}
 
-<section class="bb-shell pb-16">
-  <div class="bb-panel mb-10 overflow-hidden">
+<section class="bb-shell bb-page-section pb-16">
+  <div class="bb-panel bb-feature-panel mb-10 overflow-hidden">
     <div class="grid lg:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 class="font-headline-lg text-[#0f172a]">Comprehensive Physiotherapy Services</h2>
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">Treatment approach</p>
+        <h2 class="font-headline-lg mt-3">Comprehensive physiotherapy services</h2>
         <p class="text-slate-600 mt-4">From acute pain relief to high-performance movement programs, our treatment plans are structured for measurable progress.</p>
         <ul class="bb-list-check mt-5">
           <li>Sports Injuries and Recovery</li>
@@ -61,9 +62,10 @@ page_scope = "services"
   </div>
 </section>
 
-<section class="bb-shell pb-20">
-  <div class="flex items-end justify-between mb-8">
-    <h2 class="bb-title">Service Highlights</h2>
+<section class="bb-shell bb-page-section pb-20">
+  <div class="bb-section-heading mb-8">
+    <p class="bb-eyebrow">What to expect</p>
+    <h2 class="bb-title mt-2">Service highlights</h2>
   </div>
   <div class="grid md:grid-cols-3 gap-6">
     {% for feature in features %}

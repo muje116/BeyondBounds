@@ -8,21 +8,22 @@ layout = "default"
   kicker='Recovery Paths'
   title='Restorative Packages'
   subtitle='Flexible package structures for individuals, families, and teams who want consistent care and measurable outcomes.'
-  align='left'
+  align='center'
   image=packagesHero
   imageAlt='Package planning consultation'
 %}
 
-<section class="bb-shell pb-20">
-  <div class="bb-panel mb-10">
-    <h2 class="font-headline-lg text-[#0f172a] text-center">Plans Designed for Real Progress</h2>
+<section class="bb-shell bb-page-section pb-20">
+  <div class="bb-panel mb-10 text-center">
+    <p class="bb-eyebrow justify-center">Simple, structured care</p>
+    <h2 class="font-headline-lg mt-3">Plans designed for real progress</h2>
     <p class="text-slate-600 text-center mt-3 max-w-3xl mx-auto">Choose a structured package for consistency, accountability, and faster outcomes. Every plan can be customized after your initial assessment.</p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
     {% for p in packages %}
-      <article class="bb-card bb-card-soft hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)] {{ p.is_featured ? 'bb-card-featured' }}">
+      <article class="bb-card bb-package-card bb-card-soft hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)] {{ p.is_featured ? 'bb-card-featured' }}">
         <div class="flex items-center justify-between gap-3">
-          <span class="bb-badge-tier">{{ p.tier ?: 'Package' }}</span>
+          <span class="bb-badge-tier"><span class="material-symbols-outlined" aria-hidden="true">monitor_heart</span>{{ p.tier ?: 'Package' }}</span>
           {% if p.is_featured %}<span class="bb-badge-featured">Featured</span>{% endif %}
         </div>
         <h3 class="font-headline-md text-[#0f172a] dark:text-white mt-3">{{ p.name }}</h3>

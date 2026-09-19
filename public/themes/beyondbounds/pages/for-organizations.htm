@@ -11,22 +11,31 @@ page_scope = "organizations"
   kicker='Corporate Wellness'
   title="Elevate Your Team's Vitality and Resilience."
   subtitle='Programs designed to reduce injury downtime, improve workforce performance, and build healthier movement habits across your organization.'
-  align='left'
+  align='center'
   image=orgHero
   imageAlt='Corporate wellness program'
 %}
 
-<section class="bb-shell pb-14">
+<section class="bb-shell bb-page-section pb-14">
   <div class="bb-panel mb-10 overflow-hidden">
     <div class="grid lg:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 class="font-headline-lg text-[#0f172a]">Services for Organizations</h2>
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">Workplace movement health</p>
+        <h2 class="font-headline-lg mt-3">Services for organizations</h2>
         <p class="text-slate-600 mt-4">Comprehensive wellness programs tailored for businesses of all sizes. From health talks to workplace injury prevention, we help your team thrive.</p>
       </div>
       <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=80" alt="Corporate wellness session" class="bb-uniform-media shadow-2xl">
     </div>
   </div>
-  <h2 class="bb-title mb-7">Organization Packages</h2>
+  <div class="bb-org-stat-grid mb-12">
+    <div><strong>01</strong><span>Practical education</span></div>
+    <div><strong>02</strong><span>Injury prevention</span></div>
+    <div><strong>03</strong><span>Movement confidence</span></div>
+    <div><strong>04</strong><span>Flexible delivery</span></div>
+  </div>
+  <div class="bb-section-heading mb-7">
+    <h2 class="bb-title">Organization packages</h2>
+  </div>
   <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
     {% for p in packages %}
       <article class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)] {{ p.is_featured ? 'border-secondary/50' }}">
@@ -43,8 +52,11 @@ page_scope = "organizations"
   </div>
 </section>
 
-<section class="bb-shell pb-14">
-  <h2 class="bb-title mb-7">Program Features</h2>
+<section class="bb-shell bb-page-section pb-14">
+  <div class="bb-section-heading mb-7">
+    <p class="bb-eyebrow">What we can build together</p>
+    <h2 class="bb-title mt-2">Program features</h2>
+  </div>
   <div class="grid md:grid-cols-3 gap-6">
     {% for feature in features %}
       <article class="bb-card hover:-translate-y-1 hover:shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]">
@@ -59,9 +71,11 @@ page_scope = "organizations"
   </div>
 </section>
 
-<section class="bb-shell pb-20">
+<section class="bb-shell bb-page-section pb-20">
   <div class="bb-card">
-    <h2 class="bb-title mb-6">Partnership Inquiry</h2>
+    <div class="bb-section-heading mb-6">
+      <h2 class="bb-title">Partnership Inquiry</h2>
+    </div>
     <form data-request="contactForm::onSubmitContact" data-request-flash class="grid md:grid-cols-2 gap-4">
       <input class="bb-input" name="name" placeholder="Name" required>
       <input class="bb-input" name="email" type="email" placeholder="Work Email" required>
@@ -80,4 +94,3 @@ page_scope = "organizations"
   secondaryHref='/book'
   secondaryLabel='Book a Talk'
 %}
-

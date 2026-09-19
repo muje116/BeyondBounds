@@ -8,17 +8,18 @@ layout = "default"
   kicker='Our Story'
   title='Redefining the limits of human movement.'
   subtitle='Beyond Bounds was founded on the belief that recovery is not just returning to baseline. We combine clinical precision with human empathy to help patients move freely and confidently.'
-  align='left'
+  align='center'
   image=aboutImg
   imageAlt='Beyond Bounds care team'
 %}
 
-<section class="bb-shell pb-12">
+<section class="bb-shell bb-page-section pb-12">
   <div class="bb-panel overflow-hidden">
     <div class="grid lg:grid-cols-2 gap-8 items-center">
-      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80" alt="Physiotherapist working with a patient" class="bb-uniform-media shadow-2xl">
-      <div>
-        <h2 class="font-headline-lg text-[#0f172a]">Why Beyond Bounds Exists</h2>
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=85" alt="Physiotherapist working with a patient" class="bb-uniform-media shadow-2xl" loading="lazy">
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">The reason we show up</p>
+        <h2 class="font-headline-lg mt-3">Why Beyond Bounds exists</h2>
         <p class="text-slate-600 mt-4">We believe clinical excellence and empathy should always go together. Our practice blends modern treatment science with person-first care to create meaningful outcomes.</p>
       </div>
     </div>
@@ -26,7 +27,7 @@ layout = "default"
 </section>
 
 {% if siteSettings and (siteSettings.vision_text or siteSettings.mission_text) %}
-  <section class="bb-shell pb-20">
+  <section class="bb-shell bb-page-section pb-20">
     <div class="grid md:grid-cols-2 gap-6">
       {% if siteSettings.vision_text %}
         <article class="bb-panel bb-hover-lift">
@@ -45,8 +46,8 @@ layout = "default"
 {% endif %}
 
 {% if siteSettings and siteSettings.core_values %}
-  <section class="bb-shell pb-20">
-    <div class="mb-10">
+  <section class="bb-shell bb-page-section pb-20">
+    <div class="bb-section-heading mb-10">
       <h2 class="bb-title">Our Core Values</h2>
       <p class="text-on-surface-variant mt-2">The standards we hold ourselves to in every interaction and treatment plan.</p>
     </div>
@@ -66,8 +67,11 @@ layout = "default"
   </section>
 {% endif %}
 
-<section class="bb-shell pb-20">
-  <h2 class="bb-title mb-8">Core Principles</h2>
+<section class="bb-shell bb-page-section pb-20">
+  <div class="bb-section-heading mb-8">
+    <p class="bb-eyebrow">The standard we hold</p>
+    <h2 class="bb-title mt-2">Core principles</h2>
+  </div>
   <div class="grid md:grid-cols-12 gap-6">
     <article class="bb-panel bb-hover-lift md:col-span-7">
       <h3 class="font-headline-md text-[#0f172a] dark:text-white">Patient-Centered Focus</h3>
@@ -88,7 +92,7 @@ layout = "default"
   </div>
 </section>
 
-<section class="bb-shell pb-24">
+<section class="bb-shell bb-page-section pb-24">
   <div class="grid md:grid-cols-3 gap-7">
     <article class="bb-detail-card">
       <span class="material-symbols-outlined bb-detail-icon">location_on</span>

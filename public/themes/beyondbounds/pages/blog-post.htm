@@ -6,13 +6,15 @@ layout = "default"
 handle = "Blog\Post"
 identifier = "slug"
 ==
-<section class="bb-shell bb-section">
+<section class="bb-shell bb-page-section bb-post-page">
   {% if post %}
     <div class="max-w-4xl mx-auto">
-      <p class="text-primary text-xs font-label-bold uppercase tracking-[0.16em]">{{ post.published_at|date('M d, Y') }}</p>
-      <h1 class="font-headline-xl text-[#0f172a] dark:text-white mt-4">{{ post.title }}</h1>
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">Movement journal <span aria-hidden="true">•</span> {{ post.published_at|date('M d, Y') }}</p>
+        <h1 class="font-headline-xl text-[#0f172a] dark:text-white mt-4">{{ post.title }}</h1>
+      </div>
       {% if post.banner %}
-        <img src="{{ post.banner.path }}" alt="{{ post.title }}" class="mt-6 w-full h-72 object-cover rounded-2xl">
+        <img src="{{ post.banner.path }}" alt="{{ post.title }}" class="bb-post-cover mt-8 w-full" loading="lazy">
       {% endif %}
       <article class="bb-panel bb-post-content mt-8 prose max-w-none dark:prose-invert">{{ post.content|raw }}</article>
       <div class="mt-8">
@@ -21,7 +23,9 @@ identifier = "slug"
     </div>
   {% else %}
     <div class="max-w-4xl mx-auto">
-      <h1 class="font-headline-lg text-[#0f172a] dark:text-white">Post not found.</h1>
+      <div class="bb-section-heading">
+        <h1 class="font-headline-lg text-[#0f172a] dark:text-white">Post not found.</h1>
+      </div>
     </div>
   {% endif %}
 </section>

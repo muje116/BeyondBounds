@@ -5,34 +5,44 @@ layout = "default"
 featured_only = 0
 [clinicFeatures]
 page_scope = "home"
+[teamMembers]
+[collection blog]
+handle = "Blog\Post"
 [testimonials]
 ==
 {% set homeHero = (siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2200&q=80' %}
-<section class="bb-hero-fullbleed relative z-0 isolate min-h-[92vh] flex items-center bb-section overflow-hidden">
-  <div class="absolute inset-0 -z-10">
-    <img src="{{ homeHero }}" class="bb-hero-image w-full h-full object-cover brightness-[.9]" alt="Physiotherapist treating patient">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#071425]/90 via-[#071425]/55 to-[#071425]/35"></div>
-  </div>
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute -top-20 -left-20 w-[28rem] h-[28rem] rounded-full blur-3xl bg-primary/25"></div>
-    <div class="absolute top-1/3 -right-28 w-[30rem] h-[30rem] rounded-full blur-3xl bg-secondary/25"></div>
-  </div>
-  <div class="bb-shell text-center">
-    <div class="max-w-3xl mx-auto">
-      <p class="bb-btn-ghost bg-white/10 border-white/30 text-white">Welcome to Better Health</p>
-      <h1 class="font-headline-xl bb-hero-title mb-6 bb-hero-animate-title">Go Beyond Your Limitations</h1>
-      <p class="text-body-lg text-white/85 mb-10 max-w-2xl mx-auto bb-hero-animate-copy">Expert physiotherapy services combining evidence-based clinical treatment with compassionate care. Your recovery journey starts here.</p>
-      <div class="flex flex-wrap justify-center gap-4 bb-hero-animate-cta">
-        <a href="/book" class="bb-btn-primary">Book a Session</a>
-        <a href="/services" class="bb-btn-ghost bg-white/10 border-white/30 text-white">Learn More</a>
+<section class="bb-home-hero bb-hero-fullbleed">
+  <img src="{{ homeHero }}" class="bb-home-hero-media" alt="Physiotherapist treating patient">
+  <div class="bb-shell bb-home-hero-grid">
+    <div class="bb-home-hero-copy">
+      <p class="bb-hero-eyebrow bb-hero-animate-kicker"><span class="bb-eyebrow-dot" aria-hidden="true"></span>Welcome to better movement</p>
+      <h1 class="bb-hero-animate-title">Go beyond your limitations.</h1>
+      <p class="bb-hero-animate-copy">Expert physiotherapy that blends precise clinical care with the human support you need to move, work, play, and recover with confidence.</p>
+      <div class="bb-home-hero-actions bb-hero-animate-cta">
+        <a href="/book" class="bb-btn-primary">Book an assessment<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        <a href="/services" class="bb-btn-ghost">Explore treatments</a>
       </div>
+    </div>
+    <div class="bb-home-hero-panel bb-hero-animate-cta">
+      <p class="bb-home-hero-panel-kicker">Care that keeps you moving</p>
+      <h2>Recovery is personal.</h2>
+      <p>We meet you where you are and build a plan around your body, goals, and everyday life.</p>
+      <ul>
+        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>One-to-one treatment plans</li>
+        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Evidence-led movement care</li>
+        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Progress you can feel</li>
+      </ul>
     </div>
   </div>
 </section>
 
 {% set valueRows = (siteSettings and siteSettings.core_values) ? siteSettings.core_values : [] %}
-<section class="bb-shell pb-14 pt-12 bb-reveal-target bb-reveal-in">
-  <h2 class="font-headline-lg text-[#111928] dark:text-white text-center">Our Core Values</h2>
+<section class="bb-shell pb-16 pt-16 bb-reveal-target bb-reveal-in">
+  <div class="bb-section-heading text-center mx-auto">
+    <p class="bb-eyebrow justify-center">The Beyond Bounds difference</p>
+    <h2 class="font-headline-lg mt-3">Care with a clear point of view.</h2>
+    <p class="mx-auto">Every session is designed to make movement feel more possible, more informed, and more like your own.</p>
+  </div>
   <div class="mt-8 grid md:grid-cols-3 gap-6">
     {% if valueRows|length %}
       {% for v in valueRows|slice(0, 3) %}
@@ -67,11 +77,14 @@ page_scope = "home"
   </div>
 </section>
 
-<section class="bb-shell pb-14 pt-12">
+<section class="bb-shell bb-content-section pb-16 pt-12">
   <div class="grid lg:grid-cols-12 gap-10 items-start">
     <div class="lg:col-span-6">
-      <h2 class="font-headline-lg text-[#111928]">{{ siteSettings.home_intro_title ?: 'Comprehensive Physiotherapy Services' }}</h2>
-      <p class="text-on-surface-variant mt-3 max-w-xl">{{ siteSettings.home_intro_text ?: 'We treat a wide range of conditions with evidence-based methods, from sports injuries to post-surgical rehabilitation. Our holistic approach ensures your complete recovery.' }}</p>
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">How we help</p>
+        <h2 class="font-headline-lg mt-3">{{ siteSettings.home_intro_title ?: 'Comprehensive physiotherapy services' }}</h2>
+        <p class="text-on-surface-variant mt-3 max-w-xl">{{ siteSettings.home_intro_text ?: 'We treat a wide range of conditions with evidence-based methods, from sports injuries to post-surgical rehabilitation. Our holistic approach ensures your complete recovery.' }}</p>
+      </div>
       <div class="mt-6 space-y-3">
         {% set bullets = (siteSettings and siteSettings.home_intro_bullets) ? siteSettings.home_intro_bullets : [] %}
         {% if bullets|length %}
@@ -125,8 +138,9 @@ page_scope = "home"
 <section class="bb-parallax-section bb-parallax-band mt-8 mb-10" aria-label="Patient care background image"></section>
 
 <section class="bb-shell py-12 overflow-hidden">
-  <div class="flex items-center justify-between gap-4 mb-5">
-    <h2 class="bb-title text-[#111928]">Our Partners</h2>
+  <div class="bb-section-heading mb-7">
+    <p class="bb-eyebrow">Trusted care network</p>
+    <h2 class="bb-title mt-2">Our partners</h2>
     <p class="text-slate-500 text-sm">Trusted collaborators and supporters</p>
   </div>
   {% set partnerItems = (siteSettings and siteSettings.partners) ? siteSettings.partners : [] %}
@@ -167,38 +181,116 @@ page_scope = "home"
   </div>
 </section>
 
-<section class="bb-shell pb-20 pt-16">
-  <div class="flex items-end justify-between mb-8 gap-5">
-    <div>
-      <h2 class="bb-title text-[#111928]">Services</h2>
-      <p class="text-on-surface-variant mt-2">Specialized treatments tailored to recovery, performance, and long-term wellness.</p>
+<section class="bb-shell bb-home-section bb-home-services">
+  <div class="bb-home-section-heading">
+    <div class="bb-home-section-heading-copy">
+      <p class="bb-eyebrow">Our services</p>
+      <h2 class="font-headline-lg mt-3">Care pathways built for real life.</h2>
+      <p>Specialized treatments tailored to recovery, performance, and long-term wellness.</p>
     </div>
-    <a href="/services" class="text-secondary font-label-bold whitespace-nowrap">All Treatments</a>
+    <a href="/services" class="bb-btn-ghost bb-home-section-action">View all treatments<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
   </div>
-  <div class="grid md:grid-cols-3 gap-8 items-start">
+  <div class="bb-home-services-grid">
     {% for service in services|slice(0, 3) %}
-      <article class="bb-service-card group">
-        <a href="/services#{{ service.slug }}">
-          <div class="bb-service-media-wrap">
-            {% if service.image %}
-              <img class="bb-service-media" src="{{ service.image.getPath() }}" alt="{{ service.name }}">
-            {% else %}
-              <img class="bb-service-media" src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80" alt="{{ service.name }}">
-            {% endif %}
-            <div class="bb-service-overlay">
-              <h3 class="bb-service-title bb-service-title-overlay">{{ service.name }}</h3>
-              <p class="bb-service-copy bb-service-copy-overlay">{{ service.short_description }}</p>
-            </div>
-            <span class="bb-service-pill">{{ service.category ?: 'Treatment' }}</span>
-          </div>
+      <article class="bb-home-service-card">
+        <a href="/services#{{ service.slug }}" class="bb-home-card-media">
+          {% if service.image %}
+            <img src="{{ service.image.getPath() }}" alt="{{ service.name }}">
+          {% else %}
+            <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80" alt="{{ service.name }}">
+          {% endif %}
+          <span class="bb-blog-tag">{{ service.category ?: 'Treatment' }}</span>
         </a>
+        <div class="bb-home-card-content">
+          <p class="bb-home-card-meta">Movement care <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></p>
+          <h3><a href="/services#{{ service.slug }}">{{ service.name }}</a></h3>
+          <p>{{ service.short_description ?: 'A personalized treatment pathway designed around your goals and progress.' }}</p>
+          <a href="/services#{{ service.slug }}" class="bb-home-card-link">Learn more<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </article>
+    {% else %}
+      <article class="bb-panel bb-home-empty-card">
+        <h3 class="font-headline-md">Treatment pathways coming soon</h3>
+        <p>Contact our care team and we will help you find the right starting point.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="bb-shell bb-home-section bb-home-team">
+  <div class="bb-home-section-heading">
+    <div class="bb-home-section-heading-copy">
+      <p class="bb-eyebrow">Meet the team</p>
+      <h2 class="font-headline-lg mt-3">Specialists who help you move forward.</h2>
+      <p>Get to know the clinicians behind thoughtful, evidence-led recovery at Beyond Bounds.</p>
+    </div>
+    <a href="/team" class="bb-btn-ghost bb-home-section-action">Meet the whole team<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+  </div>
+  <div class="bb-home-team-grid">
+    {% for member in team|slice(0, 3) %}
+      <article class="bb-home-team-card">
+        <a href="/team" class="bb-home-card-media bb-home-team-media">
+          {% if member.photo %}
+            <img src="{{ member.photo.getPath() }}" alt="{{ member.name }}">
+          {% else %}
+            <div class="bb-home-card-placeholder"><span class="material-symbols-outlined" aria-hidden="true">person</span></div>
+          {% endif %}
+        </a>
+        <div class="bb-home-card-content">
+          <p class="bb-home-card-role">{{ member.title ?: 'Movement specialist' }}</p>
+          <h3><a href="/team">{{ member.name }}</a></h3>
+          <p>{{ member.bio ?: (member.specializations ?: member.qualifications ?: 'Dedicated to restorative care and movement health.') }}</p>
+          <a href="/team" class="bb-home-card-link">View profile<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </article>
+    {% else %}
+      <article class="bb-panel bb-home-empty-card">
+        <h3 class="font-headline-md">Meet our specialists</h3>
+        <p>Our clinician profiles are being updated. Contact us to find the right specialist for your goals.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="bb-shell bb-home-section bb-home-blog">
+  <div class="bb-home-section-heading">
+    <div class="bb-home-section-heading-copy">
+      <p class="bb-eyebrow">The movement journal</p>
+      <h2 class="font-headline-lg mt-3">Ideas for everyday progress.</h2>
+      <p>Practical guidance on recovery, movement, and building confidence in your body.</p>
+    </div>
+    <a href="/blog" class="bb-btn-ghost bb-home-section-action">Read the journal<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+  </div>
+  <div class="bb-home-blog-grid">
+    {% for post in blog|slice(0, 3) %}
+      <article class="bb-home-blog-card">
+        <a href="{{ 'blog-post'|page({ slug: post.slug }) }}" class="bb-home-card-media bb-home-blog-media">
+          {% if post.banner %}
+            <img src="{{ post.banner.path }}" alt="{{ post.title }}">
+          {% else %}
+            <div class="bb-home-card-placeholder"><span class="material-symbols-outlined" aria-hidden="true">article</span></div>
+          {% endif %}
+          <span class="bb-blog-tag">{{ (post.categories and post.categories|length) ? post.categories[0].title : 'Movement' }}</span>
+        </a>
+        <div class="bb-home-card-content">
+          <p class="bb-home-card-meta"><time datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></p>
+          <h3><a href="{{ 'blog-post'|page({ slug: post.slug }) }}">{{ post.title }}</a></h3>
+          <p>{{ post.featured_text ?: 'Explore practical ideas for moving with more confidence and less fear.' }}</p>
+          <a href="{{ 'blog-post'|page({ slug: post.slug }) }}" class="bb-home-card-link">Read story<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </article>
+    {% else %}
+      <article class="bb-panel bb-home-empty-card">
+        <h3 class="font-headline-md">New movement stories coming soon</h3>
+        <p>Follow the journal for practical recovery advice from the Beyond Bounds team.</p>
       </article>
     {% endfor %}
   </div>
 </section>
 
 <section class="bb-shell pb-20">
-  <h2 class="bb-title text-center mb-3 text-[#111928]">What Patients Say</h2>
+  <p class="bb-eyebrow justify-center w-full">Real recovery stories</p>
+  <h2 class="bb-title text-center mt-2 mb-3">What patients say</h2>
   <p class="text-center text-on-surface-variant max-w-3xl mx-auto mb-10">Real recovery stories from clients who trusted Beyond Bounds with their movement journey.</p>
   <div class="bb-testimonial-grid">
     {% for item in testimonials %}

@@ -13,10 +13,14 @@ layout = "default"
   imageAlt='Contact and support'
 %}
 
-<section class="bb-shell pb-20">
+<section class="bb-shell bb-page-section pb-20">
   <div class="grid lg:grid-cols-2 gap-8">
     <div class="bb-panel">
-      <h2 class="bb-title mb-6">Send Message</h2>
+      <div class="bb-section-heading mb-6">
+        <p class="bb-eyebrow">We’re here to help</p>
+        <h2 class="bb-title mt-2">Send a message</h2>
+        <p class="text-on-surface-variant">Ask about a treatment, a referral, or the right next step for your recovery.</p>
+      </div>
       <form data-request="contactForm::onSubmitContact" data-request-flash class="space-y-4">
         <input type="hidden" name="result_target" value="#contactFormResult">
         <input class="bb-input" name="name" placeholder="Name" required>
@@ -30,7 +34,10 @@ layout = "default"
     </div>
     <div class="space-y-6">
       <div class="bb-panel bb-hover-lift">
-        <h2 class="bb-title">Visit Our Clinic</h2>
+        <div class="bb-section-heading">
+          <p class="bb-eyebrow">Come and see us</p>
+          <h2 class="bb-title mt-2">Visit our clinic</h2>
+        </div>
         <p class="text-on-surface-variant mt-4 whitespace-pre-line">{{ siteSettings.address ?: 'Area 47, Lilongwe, Malawi' }}</p>
         {% if siteSettings and siteSettings.clinic_hours %}
           <div class="text-on-surface-variant mt-3 space-y-1">

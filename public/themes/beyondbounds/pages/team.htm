@@ -13,26 +13,34 @@ layout = "default"
   imageAlt='Beyond Bounds team'
 %}
 
-<section class="bb-shell pb-10">
+<section class="bb-shell bb-page-section pb-10">
   <div class="bb-panel">
+    <div class="bb-section-heading mb-7">
+      <p class="bb-eyebrow">How we care</p>
+      <h2 class="font-headline-lg mt-3">A team that sees the whole person.</h2>
+      <p>Good physiotherapy is precise, but it should also feel human. Our specialists combine clinical skill with the patience to help you understand your body.</p>
+    </div>
     <div class="grid md:grid-cols-3 gap-6">
       <article class="bb-card">
-        <h3 class="font-headline-md text-[#111827]">Expert Team</h3>
+        <span class="material-symbols-outlined text-3xl" aria-hidden="true">groups</span>
+        <h3 class="font-headline-md">Expert team</h3>
         <p class="text-slate-600">Certified professionals with years of hands-on clinical rehabilitation experience.</p>
       </article>
       <article class="bb-card">
-        <h3 class="font-headline-md text-[#111827]">Compassionate Care</h3>
+        <span class="material-symbols-outlined text-3xl" aria-hidden="true">favorite</span>
+        <h3 class="font-headline-md">Compassionate care</h3>
         <p class="text-slate-600">Every treatment is built around your comfort, confidence, and long-term recovery goals.</p>
       </article>
       <article class="bb-card">
-        <h3 class="font-headline-md text-[#111827]">Fast Recovery</h3>
+        <span class="material-symbols-outlined text-3xl" aria-hidden="true">trending_up</span>
+        <h3 class="font-headline-md">Fast recovery</h3>
         <p class="text-slate-600">Evidence-based techniques designed to accelerate healing and restore mobility.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="bb-shell pb-24">
+<section class="bb-shell bb-page-section pb-24">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {% for member in team %}
       <article class="group bb-team-card bb-hover-lift">

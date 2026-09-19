@@ -21,9 +21,9 @@ module.exports = {
         secondary: '#ffb0cc'
       },
       fontFamily: {
-        'headline-xl': ['Epilogue', 'serif'],
-        'headline-lg': ['Epilogue', 'serif'],
-        'headline-md': ['Epilogue', 'serif'],
+        'headline-xl': ['Sora', 'sans-serif'],
+        'headline-lg': ['Sora', 'sans-serif'],
+        'headline-md': ['Sora', 'sans-serif'],
         'body-md': ['Manrope', 'sans-serif'],
         'body-lg': ['Manrope', 'sans-serif'],
         'label-bold': ['Manrope', 'sans-serif']

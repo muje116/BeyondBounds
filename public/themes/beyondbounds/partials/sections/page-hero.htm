@@ -11,26 +11,42 @@
 
 {% set hasImage = image is not empty %}
 
-<section class="bb-hero-fullbleed relative z-0 isolate min-h-[58vh] flex items-center bb-section overflow-hidden">
-  <div class="absolute inset-0 -z-10">
-    {% if hasImage %}
-      <img src="{{ image }}" class="bb-hero-image w-full h-full object-cover brightness-[.88]" alt="{{ imageAlt ?: title }}">
-    {% endif %}
-    <div class="absolute inset-0 bg-gradient-to-r from-[#071425]/92 via-[#071425]/62 to-[#071425]/40"></div>
-  </div>
-
-  <div class="bb-shell w-full text-center">
-    <div class="max-w-3xl mx-auto">
+<section class="bb-page-hero bb-section bb-hero-{{ align ?: 'left' }}">
+  <div class="bb-shell bb-hero-grid">
+    <div class="bb-hero-copy bb-hero-copy-{{ align ?: 'left' }}">
       {% if kicker %}
-        <p class="bb-material-pill bb-hero-animate-kicker">{{ kicker }}</p>
+        <p class="bb-hero-eyebrow bb-hero-animate-kicker"><span class="bb-eyebrow-dot" aria-hidden="true"></span>{{ kicker }}</p>
       {% endif %}
-      <h1 class="font-headline-xl bb-hero-title bb-hero-animate-title mt-3">{{ title }}</h1>
+      <h1 class="font-headline-xl bb-hero-title bb-hero-animate-title">{{ title }}</h1>
       {% if subtitle %}
-        <p class="text-body-lg text-white/85 mt-5 bb-hero-animate-copy">{{ subtitle }}</p>
+        <p class="text-body-lg bb-hero-subtitle bb-hero-animate-copy">{{ subtitle }}</p>
       {% endif %}
+      <div class="bb-hero-signals bb-hero-animate-copy">
+        <span><span class="material-symbols-outlined" aria-hidden="true">verified</span>Evidence-led care</span>
+        <span><span class="material-symbols-outlined" aria-hidden="true">favorite</span>Built around you</span>
+      </div>
       {% if slot is not empty %}
-        <div class="mt-8">{{ slot|raw }}</div>
+        <div class="mt-8 bb-hero-animate-cta">{{ slot|raw }}</div>
+      {% else %}
+        <div class="bb-hero-actions bb-hero-animate-cta">
+          <a href="/book" class="bb-btn-primary"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span><span>Book an assessment</span></a>
+          <a href="/contact" class="bb-btn-ghost"><span>Talk to our team</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        </div>
       {% endif %}
+    </div>
+    <div class="bb-hero-visual bb-hero-animate-cta">
+      {% if hasImage %}
+        <img src="{{ image }}" class="bb-hero-image" alt="{{ imageAlt ?: title }}">
+      {% else %}
+        <div class="bb-hero-placeholder">
+          <span class="material-symbols-outlined" aria-hidden="true">accessibility_new</span>
+          <span>Movement-first care</span>
+        </div>
+      {% endif %}
+      <div class="bb-hero-float-card">
+        <span class="material-symbols-outlined" aria-hidden="true">monitor_heart</span>
+        <div><strong>Move with confidence</strong><span>Personalized recovery plans</span></div>
+      </div>
     </div>
   </div>
 </section>

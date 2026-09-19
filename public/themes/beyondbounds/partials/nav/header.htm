@@ -1,20 +1,29 @@
-<nav class="sticky top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-  <div class="bb-shell h-20 grid grid-cols-3 items-center">
-    <a href="/" class="flex items-center gap-3 justify-self-start">
+<nav class="bb-site-header sticky top-0 left-0 w-full z-50">
+  <div class="bb-shell bb-nav-inner">
+    <a href="/" class="bb-brand" aria-label="Beyond Bounds Physiotherapy home">
       {% if siteSettings and siteSettings.logo %}
-        <img
-          src="{{ siteSettings.logo|media }}"
-          alt="{{ siteBrandName ?: 'Beyond Bounds' }} logo"
-          class="bb-logo h-10 w-auto object-contain"
-          loading="eager"
-        >
+        <span class="bb-logo-frame">
+          <img
+            src="{{ siteSettings.logo|media }}"
+            alt="{{ siteBrandName ?: 'Beyond Bounds' }} logo"
+            class="bb-logo"
+            loading="eager"
+          >
+        </span>
+        <span class="bb-brand-copy">
+          <span class="bb-brand-name">{{ siteBrandName ?: 'Beyond Bounds' }}</span>
+          <span class="bb-brand-sub">Physiotherapy</span>
+        </span>
       {% else %}
-        <span class="material-symbols-outlined text-primary text-3xl">clinical_notes</span>
+        <span class="bb-brand-mark material-symbols-outlined" aria-hidden="true">accessibility_new</span>
+        <span class="bb-brand-copy">
+          <span class="bb-brand-name">{{ siteBrandName ?: 'Beyond Bounds' }}</span>
+          <span class="bb-brand-sub">Physiotherapy</span>
+        </span>
       {% endif %}
-      <span class="font-headline-md text-[#0a4fb4] tracking-[0.02em]">{{ siteBrandName ?: 'Beyond Bounds' }}</span>
     </a>
 
-    <div class="hidden lg:flex items-center gap-7 justify-self-center">
+    <div class="bb-nav-links hidden lg:flex items-center">
       {% set p = this.page.id %}
       <a href="/" class="bb-nav-link {{ p == 'index' ? 'bb-nav-link-active' }}">Home</a>
       <a href="/services" class="bb-nav-link {{ p == 'services' ? 'bb-nav-link-active' }}">Services</a>
@@ -26,8 +35,8 @@
       <a href="/contact" class="bb-nav-link {{ p == 'contact' ? 'bb-nav-link-active' }}">Contact</a>
     </div>
 
-    <div class="flex items-center gap-3 justify-self-end">
-      <a href="/book" class="bb-btn-primary hidden md:inline-flex">Book Now</a>
+    <div class="bb-nav-actions">
+      <a href="/book" class="bb-btn-primary hidden md:inline-flex"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span><span>Book assessment</span></a>
       <button
         id="themeToggle"
         type="button"
@@ -36,12 +45,14 @@
       >
         <span class="material-symbols-outlined text-[22px] leading-none" id="themeToggleIcon" aria-hidden="true">dark_mode</span>
       </button>
-      <button id="mobileMenuToggle" class="lg:hidden bb-btn-ghost px-3 py-2 text-xs" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      <button id="mobileMenuToggle" class="lg:hidden bb-menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span><span>Menu</span>
+      </button>
     </div>
   </div>
-  <div id="mobileMenu" class="lg:hidden hidden bb-shell pb-4">
+  <div id="mobileMenu" class="bb-mobile-menu lg:hidden hidden bb-shell">
     {% set p = this.page.id %}
-    <div class="grid grid-cols-2 gap-3">
+    <div class="bb-mobile-menu-grid">
       <a href="/" class="bb-nav-link {{ p == 'index' ? 'bb-nav-link-active' }}">Home</a>
       <a href="/services" class="bb-nav-link {{ p == 'services' ? 'bb-nav-link-active' }}">Services</a>
       <a href="/packages" class="bb-nav-link {{ p == 'packages' ? 'bb-nav-link-active' }}">Packages</a>
@@ -50,7 +61,7 @@
       <a href="/for-organizations" class="bb-nav-link {{ p == 'for-organizations' ? 'bb-nav-link-active' }}">Organizations</a>
       <a href="/blog" class="bb-nav-link {{ p == 'blog' ? 'bb-nav-link-active' }}">Blog</a>
       <a href="/contact" class="bb-nav-link {{ p == 'contact' ? 'bb-nav-link-active' }}">Contact</a>
-      <a href="/book" class="bb-btn-primary justify-center">Book Now</a>
+      <a href="/book" class="bb-btn-primary justify-center"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>Book assessment</a>
       <button id="themeToggleMobile" type="button" class="bb-theme-toggle justify-self-start" aria-label="Toggle color theme">
         <span class="material-symbols-outlined text-[22px] leading-none" id="themeToggleIconMobile" aria-hidden="true">dark_mode</span>
       </button>

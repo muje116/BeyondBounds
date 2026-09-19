@@ -16,10 +16,14 @@ page_scope = "book"
   imageAlt='Book physiotherapy appointment'
 %}
 
-<section class="bb-shell pb-20">
+<section class="bb-shell bb-page-section pb-20">
   <div class="grid lg:grid-cols-12 gap-8 items-start">
     <div class="lg:col-span-8 bb-panel">
-      <h2 class="bb-title mb-6">Booking Form</h2>
+      <div class="bb-section-heading mb-6">
+        <p class="bb-eyebrow">A considered first step</p>
+        <h2 class="bb-title mt-2">Book your assessment</h2>
+        <p class="text-on-surface-variant">Share a few details and we’ll match your goals with the right starting point.</p>
+      </div>
       <form
         data-request="bookingForm::onSubmitBooking"
         data-request-flash
@@ -46,7 +50,10 @@ page_scope = "book"
     </div>
     <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
       <div class="bb-panel bb-hover-lift">
-      <h3 class="font-headline-md text-[#0f172a]">Clinic Hours</h3>
+      <div class="bb-section-heading">
+        <p class="bb-eyebrow">Plan your visit</p>
+        <h3 class="font-headline-md mt-2">Clinic hours</h3>
+      </div>
       <ul class="text-slate-600 mt-4 space-y-2">
         {% if siteSettings and siteSettings.clinic_hours %}
           {% for row in siteSettings.clinic_hours %}
@@ -64,7 +71,10 @@ page_scope = "book"
       </p>
       </div>
       <div class="bb-panel bb-hover-lift">
-        <h3 class="font-headline-md text-[#0f172a] mb-4">Booking Highlights</h3>
+        <div class="bb-section-heading mb-4">
+          <p class="bb-eyebrow">What happens next</p>
+          <h3 class="font-headline-md mt-2">Booking highlights</h3>
+        </div>
         {% for feature in features|slice(0, 3) %}
           <div class="mb-4 last:mb-0">
             <p class="text-secondary font-label-bold text-xs uppercase tracking-[0.16em]">{{ feature.title }}</p>
