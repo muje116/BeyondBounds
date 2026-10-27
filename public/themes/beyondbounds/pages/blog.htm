@@ -7,9 +7,9 @@ handle = "Blog\Post"
 ==
 {% set blogHero = (siteSettings and siteSettings.blog_hero_image) ? (siteSettings.blog_hero_image|media) : ((siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : null) %}
 {% partial 'sections/page-hero'
-  kicker='Beyond Bounds'
-  title='Insights for Movement'
-  subtitle='Discover expert advice on restorative care, performance optimization, and the science of human motion.'
+  kicker='Movement journal'
+  title='Ideas for moving well.'
+  subtitle='Clear, practical guidance on recovery, movement, and everyday wellbeing from the Beyond Bounds team.'
   align='center'
   image=blogHero
   imageAlt='Blog and wellness insights'
