@@ -6,6 +6,7 @@ layout = "default"
 page_scope = "services"
 ==
 {% set servicesHero = (siteSettings and siteSettings.services_hero_image) ? (siteSettings.services_hero_image|media) : ((siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : null) %}
+{% set servicesApproachImage = (siteSettings and siteSettings.services_approach_image) ? (siteSettings.services_approach_image|media) : 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1400&q=80' %}
 {% partial 'sections/page-hero'
   kicker='Physiotherapy services'
   title='Care that gets you moving again.'
@@ -29,7 +30,7 @@ page_scope = "services"
           <li>Back and Joint Pain Management</li>
         </ul>
       </div>
-      <img src="https://images.unsplash.com/photo-1631815588090-d1bcbe9a2c8f?auto=format&fit=crop&w=1400&q=80" alt="Therapist guiding a patient through exercise" class="bb-uniform-media shadow-2xl">
+      <img src="{{ servicesApproachImage }}" alt="Physiotherapy service session" class="bb-uniform-media shadow-2xl" loading="lazy" onerror="this.onerror=null;this.src='{{ 'assets/images/clinic-room-fallback.jpg'|theme }}';">
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">

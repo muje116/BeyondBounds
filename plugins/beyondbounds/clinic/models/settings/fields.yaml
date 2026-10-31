@@ -119,12 +119,35 @@ tabs:
       tab: Media
       span: full
 
+    about_story_image:
+      label: About Story Image
+      type: mediafinder
+      mode: image
+      tab: Media
+      span: left
+      comment: Image shown in the About page story section.
+    services_approach_image:
+      label: Services Approach Image
+      type: mediafinder
+      mode: image
+      tab: Media
+      span: right
+      comment: Image shown beside the treatment approach on the Services page.
+    organizations_intro_image:
+      label: Organizations Intro Image
+      type: mediafinder
+      mode: image
+      tab: Media
+      span: full
+      comment: Image shown in the workplace movement health section.
+
     home_intro_image:
       label: Home Intro Image
       type: mediafinder
       mode: image
       tab: Home
       span: full
+      comment: Image shown in the homepage physiotherapy introduction.
     home_intro_title:
       label: Home Intro Title
       type: text

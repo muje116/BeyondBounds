@@ -10,9 +10,10 @@ page_scope = "home"
 handle = "Blog\Post"
 [testimonials]
 ==
-{% set homeHero = (siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2200&q=80' %}
+{% set localImageFallback = 'assets/images/clinic-room-fallback.jpg'|theme %}
+{% set homeHero = (siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : localImageFallback %}
 <section class="bb-home-hero bb-hero-fullbleed">
-  <img src="{{ homeHero }}" class="bb-home-hero-media" alt="Physiotherapist treating patient">
+  <img src="{{ homeHero }}" class="bb-home-hero-media" alt="Physiotherapy treatment room" onerror="this.onerror=null;this.src='{{ localImageFallback }}';">
   <div class="bb-shell bb-home-hero-grid">
     <div class="bb-home-hero-copy">
       <p class="bb-hero-eyebrow bb-hero-animate-kicker"><span class="bb-eyebrow-dot" aria-hidden="true"></span>Welcome to better movement</p>
@@ -77,65 +78,76 @@ handle = "Blog\Post"
   </div>
 </section>
 
-<section class="bb-shell bb-content-section pb-16 pt-12">
-  <div class="grid lg:grid-cols-12 gap-10 items-start">
-    <div class="lg:col-span-6">
-      <div class="bb-section-heading">
-        <p class="bb-eyebrow">How we help</p>
-        <h2 class="font-headline-lg mt-3">{{ siteSettings.home_intro_title ?: 'Comprehensive physiotherapy services' }}</h2>
-        <p class="text-on-surface-variant mt-3 max-w-xl">{{ siteSettings.home_intro_text ?: 'We treat a wide range of conditions with evidence-based methods, from sports injuries to post-surgical rehabilitation. Our holistic approach ensures your complete recovery.' }}</p>
-      </div>
-      <div class="mt-6 space-y-3">
-        {% set bullets = (siteSettings and siteSettings.home_intro_bullets) ? siteSettings.home_intro_bullets : [] %}
-        {% if bullets|length %}
-          {% for b in bullets %}
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary text-xl mt-[2px]">check_circle</span>
-              <p class="text-on-surface-variant text-sm">{{ b.text }}</p>
-            </div>
-          {% endfor %}
-        {% else %}
-          {% set fallbackBullets = [
-            'Sports Injuries & Recovery',
-            'Post-Fracture & Dislocation Treatment',
-            'Rehabilitation Programs',
-            'Back & Joint Pain Management',
-            'Stroke & Spinal Cord Injuries',
-            'Post-Surgical Rehabilitation'
-          ] %}
-          {% for t in fallbackBullets %}
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary text-xl mt-[2px]">check_circle</span>
-              <p class="text-on-surface-variant text-sm">{{ t }}</p>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
+<section class="bb-shell bb-home-intro-section">
+  {% set introImg = (siteSettings and siteSettings.home_intro_image) ? (siteSettings.home_intro_image|media) : 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1400&q=80' %}
+  {% set introBullets = (siteSettings and siteSettings.home_intro_bullets) ? siteSettings.home_intro_bullets : [] %}
+  {% if introBullets|length == 0 %}
+    {% set introBullets = [
+      {'text':'Sports injury recovery'},
+      {'text':'Post-fracture rehabilitation'},
+      {'text':'Back and joint pain'},
+      {'text':'Neurological rehabilitation'},
+      {'text':'Post-surgical recovery'},
+      {'text':'Movement and strength programs'}
+    ] %}
+  {% endif %}
+  <div class="bb-home-intro-layout">
+    <div class="bb-home-intro-copy">
+      <p class="bb-eyebrow"><span class="bb-eyebrow-dot" aria-hidden="true"></span>How we help</p>
+      <h2>{{ siteSettings.home_intro_title ?: 'Comprehensive Physiotherapy Services' }}</h2>
+      <p class="bb-home-intro-lead">{{ siteSettings.home_intro_text ?: 'We treat a wide range of conditions with evidence-based methods, from sports injuries to post-surgical rehabilitation. Our approach is built around your goals and your everyday life.' }}</p>
+      <ul class="bb-home-intro-bullets">
+        {% for bullet in introBullets %}
+          {% if bullet.text %}
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>{{ bullet.text }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <a href="/services" class="bb-home-intro-link">Explore our services<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
     </div>
-    <div class="lg:col-span-6">
-      <div class="bb-service-media-wrap bb-hover-lift">
-        {% set introImg = (siteSettings and siteSettings.home_intro_image) ? (siteSettings.home_intro_image|media) : 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1400&q=80' %}
-        <img class="bb-service-media" src="{{ introImg }}" alt="Physiotherapy treatment">
-      </div>
-    </div>
+    <figure class="bb-home-intro-media">
+      <img src="{{ introImg }}" alt="Physiotherapist guiding a patient through movement" loading="lazy" onerror="this.onerror=null;this.src='{{ localImageFallback }}';">
+      <figcaption><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span><strong>Care that moves with you</strong><small>Personalised support at every stage</small></span></figcaption>
+    </figure>
   </div>
 
-  <div class="mt-10 grid md:grid-cols-3 gap-6">
-    {% for feature in features|slice(0, 3) %}
-      <article class="bb-card bb-hover-lift">
-        <div class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-primary text-3xl">{{ feature.icon_class ?: 'bolt' }}</span>
-          <div>
-            <h3 class="font-headline-md text-[#0f172a] dark:text-white">{{ feature.title }}</h3>
-            <p class="text-on-surface-variant mt-2 text-sm">{{ feature.description }}</p>
-          </div>
+  <div class="bb-home-feature-grid">
+    {% for feature in features|slice(0, 2) %}
+      {% set featureIcon = feature.icon_class %}
+      {% if not featureIcon %}
+        {% set featureIcon = feature.slug == 'cryo-compression' ? 'ac_unit' : 'monitoring' %}
+      {% endif %}
+      {% set featureCopy = feature.description %}
+      {% set placeholderCopy = feature.title ~ ' feature content.' %}
+      {% if not featureCopy or featureCopy == placeholderCopy %}
+        {% if feature.slug == 'performance-biomechanics' %}
+          {% set featureCopy = 'A closer look at how you move, with practical guidance shaped around your goals and activity.' %}
+        {% elseif feature.slug == 'cryo-compression' %}
+          {% set featureCopy = 'Recovery support delivered with appropriate screening and guidance from our physiotherapy team.' %}
+        {% else %}
+          {% set featureCopy = 'Explore a focused treatment option with support from our physiotherapy team.' %}
+        {% endif %}
+      {% endif %}
+      <article class="bb-home-feature-card">
+        {% if feature.image %}
+          <div class="bb-home-feature-visual bb-home-feature-photo"><img src="{{ feature.image.getPath() }}" alt="{{ feature.title }}" loading="lazy" onerror="this.onerror=null;this.src='{{ localImageFallback }}';"></div>
+        {% else %}
+          <div class="bb-home-feature-visual bb-home-feature-art {{ loop.index == 2 ? 'bb-home-feature-art-cyan' }}" aria-hidden="true"><span class="material-symbols-outlined">{{ featureIcon }}</span><i></i><b></b></div>
+        {% endif %}
+        <div class="bb-home-feature-content">
+          <p class="bb-home-feature-kicker">{{ feature.subtitle ?: 'Featured treatment' }}</p>
+          <h3>{{ feature.title }}</h3>
+          <p class="bb-home-feature-description">{{ featureCopy }}</p>
+          <a href="/services" class="bb-home-feature-link">Explore treatment options<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
       </article>
+    {% else %}
+      <article class="bb-home-feature-empty"><span class="material-symbols-outlined" aria-hidden="true">health_and_safety</span><div><h3>More ways to move well</h3><p>Our team can help you find the right treatment pathway for your goals.</p></div><a href="/services">Browse services<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a></article>
     {% endfor %}
   </div>
 </section>
 
-<section class="bb-parallax-section bb-parallax-band mt-8 mb-10" aria-label="Patient care background image"></section>
+<section class="bb-parallax-section bb-parallax-band mt-8 mb-10" aria-hidden="true"></section>
 
 <section class="bb-shell py-12 overflow-hidden">
   <div class="bb-section-heading mb-7">
@@ -197,7 +209,7 @@ handle = "Blog\Post"
           {% if service.image %}
             <img src="{{ service.image.getPath() }}" alt="{{ service.name }}">
           {% else %}
-            <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80" alt="{{ service.name }}">
+            <div class="bb-home-card-placeholder"><span class="material-symbols-outlined" aria-hidden="true">{{ service.icon_class ?: 'self_improvement' }}</span></div>
           {% endif %}
           <span class="bb-blog-tag">{{ service.category ?: 'Treatment' }}</span>
         </a>

@@ -7,6 +7,7 @@ page_scope = "organizations"
 [contactForm]
 ==
 {% set orgHero = (siteSettings and siteSettings.organizations_hero_image) ? (siteSettings.organizations_hero_image|media) : ((siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : null) %}
+{% set orgIntroImage = (siteSettings and siteSettings.organizations_intro_image) ? (siteSettings.organizations_intro_image|media) : 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=80' %}
 {% partial 'sections/page-hero'
   kicker='For organizations'
   title='Healthier movement at work.'
@@ -24,7 +25,7 @@ page_scope = "organizations"
         <h2 class="font-headline-lg mt-3">Services for organizations</h2>
         <p class="text-slate-600 mt-4">Comprehensive wellness programs tailored for businesses of all sizes. From health talks to workplace injury prevention, we help your team thrive.</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=80" alt="Corporate wellness session" class="bb-uniform-media shadow-2xl">
+      <img src="{{ orgIntroImage }}" alt="Workplace physiotherapy and movement care" class="bb-uniform-media shadow-2xl" loading="lazy" onerror="this.onerror=null;this.src='{{ 'assets/images/clinic-room-fallback.jpg'|theme }}';">
     </div>
   </div>
   <div class="bb-org-stat-grid mb-12">

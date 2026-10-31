@@ -36,7 +36,7 @@
     </div>
     <div class="bb-hero-visual bb-hero-animate-cta">
       {% if hasImage %}
-        <img src="{{ image }}" class="bb-hero-image" alt="{{ imageAlt ?: title }}">
+        <img src="{{ image }}" class="bb-hero-image" alt="{{ imageAlt ?: title }}" onerror="this.onerror=null;this.src='{{ 'assets/images/clinic-room-fallback.jpg'|theme }}';">
       {% else %}
         <div class="bb-hero-placeholder">
           <span class="material-symbols-outlined" aria-hidden="true">accessibility_new</span>

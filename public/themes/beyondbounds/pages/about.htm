@@ -4,6 +4,7 @@ layout = "default"
 [teamMembers]
 ==
 {% set aboutImg = (siteSettings and siteSettings.about_hero_image) ? (siteSettings.about_hero_image|media) : ((siteSettings and siteSettings.default_hero_image) ? (siteSettings.default_hero_image|media) : null) %}
+{% set aboutStoryImage = (siteSettings and siteSettings.about_story_image) ? (siteSettings.about_story_image|media) : 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=85' %}
 {% partial 'sections/page-hero'
   kicker='Our Story'
   title='Better movement starts with understanding.'
@@ -16,7 +17,7 @@ layout = "default"
 <section class="bb-shell bb-page-section pb-12">
   <div class="bb-panel overflow-hidden">
     <div class="grid lg:grid-cols-2 gap-8 items-center">
-      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=85" alt="Physiotherapist working with a patient" class="bb-uniform-media shadow-2xl" loading="lazy">
+      <img src="{{ aboutStoryImage }}" alt="Physiotherapy care and treatment" class="bb-uniform-media shadow-2xl" loading="lazy" onerror="this.onerror=null;this.src='{{ 'assets/images/clinic-room-fallback.jpg'|theme }}';">
       <div class="bb-section-heading">
         <p class="bb-eyebrow">The reason we show up</p>
         <h2 class="font-headline-lg mt-3">Why Beyond Bounds exists</h2>

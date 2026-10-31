@@ -8,6 +8,7 @@
             alt="{{ siteBrandName ?: 'Beyond Bounds' }} logo"
             class="bb-logo"
             loading="eager"
+            onerror="this.onerror=null;this.src='{{ 'assets/images/clinic-logo-fallback.png'|theme }}';"
           >
         </span>
         <span class="bb-brand-copy">

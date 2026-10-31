@@ -57,11 +57,12 @@ form:
                 comment: "Example: fitness_center"
 
             image:
-                label: Feature Image
+                label: Feature Card Image
                 type: fileupload
                 mode: image
                 tab: Media
                 span: full
+                comment: Optional image for the homepage feature card. Without one, the site renders a branded icon panel.
 
             is_featured:
                 label: Featured
